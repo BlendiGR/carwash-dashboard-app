@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
+import { useTranslations } from "next-intl"
 import { loginSchema, LoginData } from "@/schemas/loginSchema"
 import { login } from "@/app/actions/auth"
 import { FormField } from "./form"
@@ -11,6 +12,7 @@ import { Button } from "./button"
 import { Mail, Key } from "lucide-react"
 
 export function LoginForm() {
+    const t = useTranslations('Login')
     const [authError, setAuthError] = useState<string | null>(null)
     const [isLoading, setIsLoading] = useState(false)
 
@@ -41,25 +43,26 @@ export function LoginForm() {
                     {authError}
                 </div>
             )}
-            <FormField label="Email" error={errors.email?.message}>
+            <FormField label={t('email')} error={errors.email?.message}>
                 <Input 
                    type="email" 
-                   placeholder="Email" 
+                   placeholder={t('email')} 
                    startIcon={<Mail className="size-4 text-gray-400" />}
                    {...register("email")} 
                 />
             </FormField>
-            <FormField label="Password" error={errors.password?.message}>
+            <FormField label={t('password')} error={errors.password?.message}>
                 <Input 
                    type="password" 
-                   placeholder="Password" 
+                   placeholder={t('password')} 
                    startIcon={<Key className="size-4 text-gray-400" />}
                    {...register("password")} 
                 />
             </FormField>
             <Button type="submit" size="lg" disabled={isLoading}>
-                {isLoading ? "Logging in..." : "Login"}
+                {isLoading ? t('loading') : t('submit')}
             </Button>
         </form>
     )
 }
+

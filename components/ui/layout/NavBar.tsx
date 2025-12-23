@@ -1,21 +1,30 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { navItems } from "@/config";
 import NavButton from "../navbutton";
 import Link from "next/link";
 import Image from "next/image";
 import SignOutBtn from "../signoutbtn";
+import MobileNav from "./MobileNav";
+import LanguageSwitcher from "../LanguageSwitcher";
 
 export default function NavBar() {
+    const t = useTranslations('Navigation');
+
     return (
         <nav className="flex flex-row justify-between items-center p-4 w-full shadow-md">
             <div>
                 <Link href="/"><Image src="/logo-opus.png" alt="Autospa Opus" width={100} height={100} priority /></Link>
             </div>
-            <div className="hidden md:flex flex-row gap-4">
+            <div className="hidden md:flex flex-row gap-4 items-center">
                 {navItems.map((item) => (
-                    <NavButton key={item.name} href={item.href} label={item.name} />
+                    <NavButton key={item.href} href={item.href} label={t(item.key)} />
                 ))}
+                <LanguageSwitcher />
                 <SignOutBtn />
             </div>
+            <MobileNav />
         </nav>
     )
 }

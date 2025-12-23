@@ -1,0 +1,20 @@
+{
+  "Navigation": {
+    "dashboard": "Hallintapaneeli",
+    "sendReceipt": "Lähetä Kuitti",
+    "customers": "Asiakkaat"
+  },
+  "Login": {
+    "title": "Kirjaudu",
+    "subtitle": "Kirjaudu tilillesi",
+    "email": "Sähköposti",
+    "password": "Salasana",
+    "submit": "Kirjaudu",
+    "loading": "Kirjaudutaan..."
+  },
+  "Pages": {
+    "dashboard": "Hallintapaneeli",
+    "sendReceipt": "Lähetä Kuitti",
+    "customers": "Asiakkaat"
+  }
+}

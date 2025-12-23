@@ -11,6 +11,6 @@ export default function SignOutBtn() {
     }
 
     return (
-        <button onClick={handleSignOut} className="bg-gray-200 text-gray-500 hover:text-white hover:bg-red-300 cursor-pointer py-2 px-4 rounded-lg"><LogOut /></button>
+        <button onClick={handleSignOut} className="flex flex-row justify-center bg-gray-200 text-gray-500 hover:text-white hover:bg-red-300 cursor-pointer py-2 px-4 rounded-lg text-center items-center"><LogOut /></button>
     )
 }

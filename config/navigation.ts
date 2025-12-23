@@ -1,16 +1,14 @@
 export const navItems = [
     {
-        name: "Dashboard",
+        key: "dashboard",
         href: "/dashboard"
     },
     {
-        name: "Email Receipt",
-        href: "/dashboard/email-receipt"
+        key: "sendReceipt",
+        href: "/send-receipt"
     },
     {
-        name: "Customers",
-        href: "/dashboard/customers"
+        key: "customers",
+        href: "/customers"
     }
 ] as const;
-
-

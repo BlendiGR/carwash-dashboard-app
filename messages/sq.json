@@ -1,0 +1,20 @@
+{
+  "Navigation": {
+    "dashboard": "Paneli",
+    "sendReceipt": "Dërgo Faturë",
+    "customers": "Klientët"
+  },
+  "Login": {
+    "title": "Hyrja",
+    "subtitle": "Hyni në llogarinë tuaj",
+    "email": "Email",
+    "password": "Fjalëkalimi",
+    "submit": "Hyr",
+    "loading": "Duke hyrë..."
+  },
+  "Pages": {
+    "dashboard": "Paneli",
+    "sendReceipt": "Dërgo Faturë",
+    "customers": "Klientët"
+  }
+}

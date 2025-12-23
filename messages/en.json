@@ -1,0 +1,20 @@
+{
+  "Navigation": {
+    "dashboard": "Dashboard",
+    "sendReceipt": "Send Receipt",
+    "customers": "Customers"
+  },
+  "Login": {
+    "title": "Login",
+    "subtitle": "Login to your account",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Login",
+    "loading": "Logging in..."
+  },
+  "Pages": {
+    "dashboard": "Dashboard",
+    "sendReceipt": "Send Receipt",
+    "customers": "Customers"
+  }
+}
