@@ -10,11 +10,13 @@ import { FormField } from "./form"
 import { Input } from "./input"
 import { Button } from "./button"
 import { Mail, Key } from "lucide-react"
+import { useLoading } from "@/hooks"
+import { Spinner } from "./Spinner"
 
 export function LoginForm() {
     const t = useTranslations('Login')
     const [authError, setAuthError] = useState<string | null>(null)
-    const [isLoading, setIsLoading] = useState(false)
+    const { loading, withLoading } = useLoading()
 
     const { register, handleSubmit, formState: { errors } } = useForm<LoginData>({
         resolver: zodResolver(loginSchema),
@@ -22,18 +24,14 @@ export function LoginForm() {
 
     const onSubmit = async (data: LoginData) => {
         setAuthError(null)
-        setIsLoading(true)
 
-        try {
+        await withLoading(async () => {
             const result = await login(data.email, data.password)
             
             if (result?.error) {
                 setAuthError(result.error)
             }
-        } catch {
-        } finally {
-            setIsLoading(false)
-        }
+        })
     }
 
     return (
@@ -59,10 +57,14 @@ export function LoginForm() {
                    {...register("password")} 
                 />
             </FormField>
-            <Button type="submit" size="lg" disabled={isLoading}>
-                {isLoading ? t('loading') : t('submit')}
+            <Button type="submit" size="lg" disabled={loading} className="flex items-center justify-center gap-2">
+                {loading ? (
+                    <>
+                        <Spinner size={18} spinColor="white" ringColor="rgba(255,255,255,0.3)" />
+                        {t('loading')}
+                    </>
+                ) : t('submit')}
             </Button>
         </form>
     )
 }
-

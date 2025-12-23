@@ -5,10 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { X, Menu } from "lucide-react";
 import { useTranslations } from "next-intl";
-import LanguageSwitcher from "../LanguageSwitcher";
+import LanguageSwitcher from "../ui/LanguageSwitcher";
 import { navItems } from "@/config";
-import NavButton from "../navbutton";
-import SignOutBtn from "../signoutbtn";
+import NavButton from "../ui/navbutton";
+import SignOutBtn from "../ui/signoutbtn";
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);

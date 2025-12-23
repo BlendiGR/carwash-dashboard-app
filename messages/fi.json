@@ -16,5 +16,32 @@
     "dashboard": "Hallintapaneeli",
     "sendReceipt": "Lähetä Kuitti",
     "customers": "Asiakkaat"
+  },
+  "Dashboard": {
+    "title": "Rengashotelli Hallinta",
+    "subtitle": "Hallitse rengashotelliasi",
+    "addStorageUnit": "Lisää Säilytysyksikkö",
+    "loading": "Ladataan...",
+    "noTyresFound": "Renkaita ei löytynyt",
+    "page": "Sivu",
+    "of": "/"
+  },
+  "TyreCard": {
+    "customer": "Asiakas",
+    "plate": "Rekisterinumero",
+    "tyreNumber": "Rengasnumero",
+    "storedAt": "Säilytetty",
+    "occupied": "Säilytetty",
+    "returned": "Palautettu",
+    "returnButton": "Palauta",
+    "storeButton": "Säilytä"
+  },
+  "ConfirmDialog": {
+    "returnTitle": "Palauta asiakkaalle?",
+    "storeTitle": "Säilytä renkaat?",
+    "returnMessage": "Haluatko varmasti palauttaa renkaat {plate} asiakkaalle?",
+    "storeMessage": "Haluatko varmasti säilyttää renkaat {plate}?",
+    "cancel": "Peruuta",
+    "confirm": "Vahvista"
   }
 }

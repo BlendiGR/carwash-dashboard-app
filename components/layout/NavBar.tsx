@@ -2,12 +2,12 @@
 
 import { useTranslations } from "next-intl";
 import { navItems } from "@/config";
-import NavButton from "../navbutton";
+import NavButton from "../ui/navbutton";
 import Link from "next/link";
 import Image from "next/image";
-import SignOutBtn from "../signoutbtn";
+import SignOutBtn from "../ui/signoutbtn";
 import MobileNav from "./MobileNav";
-import LanguageSwitcher from "../LanguageSwitcher";
+import LanguageSwitcher from "../ui/LanguageSwitcher";
 
 export default function NavBar() {
     const t = useTranslations('Navigation');

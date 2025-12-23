@@ -16,5 +16,32 @@
     "dashboard": "Dashboard",
     "sendReceipt": "Send Receipt",
     "customers": "Customers"
+  },
+  "Dashboard": {
+    "title": "Tyre Hotel Management",
+    "subtitle": "Manage your tyre hotel",
+    "addStorageUnit": "Add Storage Unit",
+    "loading": "Loading...",
+    "noTyresFound": "No tyres found",
+    "page": "Page",
+    "of": "of"
+  },
+  "TyreCard": {
+    "customer": "Customer",
+    "plate": "Plate",
+    "tyreNumber": "Tyre Number",
+    "storedAt": "Stored at",
+    "occupied": "Stored",
+    "returned": "Returned",
+    "returnButton": "Return",
+    "storeButton": "Store"
+  },
+  "ConfirmDialog": {
+    "returnTitle": "Return to Customer?",
+    "storeTitle": "Store Tyres?",
+    "returnMessage": "Are you sure you want to return the tyres for {plate} to the customer?",
+    "storeMessage": "Are you sure you want to store the tyres for {plate}?",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
   }
 }

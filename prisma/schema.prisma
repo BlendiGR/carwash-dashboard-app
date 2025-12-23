@@ -9,15 +9,14 @@ datasource db {
 
 model Tyre {
   id         Int       @id @default(autoincrement())
-  customer   Customer? @relation(fields: [customerId], references: [id], onDelete: SetNull)
-  customerId Int?
   number     String    @db.VarChar(20)
   plate      String    @unique @db.Citext
   location   String?   @db.VarChar(50)
   dateStored DateTime?
+  deletedAt  DateTime?
+  customerId Int?
   isStored   Boolean   @default(true)
-
-  deletedAt DateTime?
+  customer   Customer? @relation(fields: [customerId], references: [id])
 
   @@index([location])
   @@index([isStored])
@@ -27,7 +26,6 @@ model Tyre {
 
 model Invoices {
   id          Int       @id @default(autoincrement())
-  customer    Customer? @relation(fields: [customerId], references: [id], onDelete: SetNull)
   customerId  Int?
   plate       String    @db.Citext
   services    String[]
@@ -36,6 +34,7 @@ model Invoices {
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   deletedAt   DateTime?
+  customer    Customer? @relation(fields: [customerId], references: [id])
 
   @@index([customerId])
   @@index([plate])
@@ -48,8 +47,8 @@ model Customer {
   plate    String?    @db.Citext
   name     String
   company  String?
-  tyres    Tyre[]
   invoices Invoices[]
+  tyres    Tyre[]
 
   @@index([email])
   @@index([phone])
@@ -74,9 +73,9 @@ model PasswordResetToken {
   id        Int      @id @default(autoincrement())
   token     String   @unique
   userId    Int
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   expiresAt DateTime
   createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([token])
 }

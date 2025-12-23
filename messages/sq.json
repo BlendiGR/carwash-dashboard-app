@@ -16,5 +16,32 @@
     "dashboard": "Paneli",
     "sendReceipt": "Dërgo Faturë",
     "customers": "Klientët"
+  },
+  "Dashboard": {
+    "title": "Menaxhimi i Hotelit të Gomave",
+    "subtitle": "Menaxho hotelin e gomave",
+    "addStorageUnit": "Shto Njësi Ruajtëse",
+    "loading": "Duke ngarkuar...",
+    "noTyresFound": "Nuk u gjetën goma",
+    "page": "Faqja",
+    "of": "nga"
+  },
+  "TyreCard": {
+    "customer": "Klienti",
+    "plate": "Targa",
+    "tyreNumber": "Numri i Gomës",
+    "storedAt": "Ruajtur më",
+    "occupied": "Ruajtur",
+    "returned": "E Kthyer",
+    "returnButton": "Kthe",
+    "storeButton": "Ruaj"
+  },
+  "ConfirmDialog": {
+    "returnTitle": "Kthe tek Klienti?",
+    "storeTitle": "Ruaj Gomat?",
+    "returnMessage": "A jeni i sigurt që dëshironi t'i ktheni gomat për {plate} klientit?",
+    "storeMessage": "A jeni i sigurt që dëshironi t'i ruani gomat për {plate}?",
+    "cancel": "Anulo",
+    "confirm": "Konfirmo"
   }
 }
