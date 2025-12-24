@@ -4,9 +4,9 @@ import { useState, useTransition, useRef, useEffect } from "react";
 import { Globe } from "lucide-react";
 
 const locales = [
-  { code: 'en', name: 'English' },
-  { code: 'sq', name: 'Shqip' },
-  { code: 'fi', name: 'Suomi' },
+  { code: "en", name: "English" },
+  { code: "sq", name: "Shqip" },
+  { code: "fi", name: "Suomi" },
 ];
 
 export default function LanguageSwitcher() {
@@ -15,9 +15,9 @@ export default function LanguageSwitcher() {
   const ref = useRef<HTMLDivElement>(null);
 
   const getCurrentLocale = () => {
-    if (typeof document === 'undefined') return 'en';
+    if (typeof document === "undefined") return "en";
     const match = document.cookie.match(/locale=([^;]+)/);
-    return match ? match[1] : 'en';
+    return match ? match[1] : "en";
   };
 
   const handleSelect = (code: string) => {
@@ -34,8 +34,8 @@ export default function LanguageSwitcher() {
         setIsOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -48,7 +48,7 @@ export default function LanguageSwitcher() {
       >
         <Globe />
       </button>
-      
+
       {isOpen && (
         <div className="absolute right-0 mt-2 bg-white rounded-lg shadow-lg border py-1 min-w-[120px] z-50">
           {locales.map((locale) => (
@@ -56,7 +56,7 @@ export default function LanguageSwitcher() {
               key={locale.code}
               onClick={() => handleSelect(locale.code)}
               className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
-                getCurrentLocale() === locale.code ? 'font-semibold bg-gray-50' : ''
+                getCurrentLocale() === locale.code ? "font-semibold bg-gray-50" : ""
               }`}
             >
               {locale.name}
@@ -67,4 +67,3 @@ export default function LanguageSwitcher() {
     </div>
   );
 }
-

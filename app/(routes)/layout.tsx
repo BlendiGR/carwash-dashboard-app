@@ -3,11 +3,7 @@ import { redirect } from "next/navigation";
 import NavBar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
 
-export default async function RoutesLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RoutesLayout({ children }: { children: React.ReactNode }) {
   const session = await auth();
 
   if (!session) {

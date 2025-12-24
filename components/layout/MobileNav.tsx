@@ -12,7 +12,7 @@ import SignOutBtn from "../ui/signoutbtn";
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
-  const t = useTranslations('Navigation');
+  const t = useTranslations("Navigation");
 
   return (
     <>
@@ -25,9 +25,7 @@ export default function MobileNav() {
       </button>
       <div
         className={`fixed inset-0 z-[100] bg-black/30 transition-opacity duration-300 ${
-          isOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setIsOpen(false)}
       />
@@ -45,22 +43,22 @@ export default function MobileNav() {
         </button>
         <div className="mb-8">
           <Link href="/" onClick={() => setIsOpen(false)}>
-            <Image
-              src="/logo-opus.png"
-              alt="Autospa Opus"
-              width={100}
-              height={100}
-              priority
-            />
+            <Image src="/logo-opus.png" alt="Autospa Opus" width={100} height={100} priority />
           </Link>
         </div>
         <ul className="flex flex-col gap-4">
           {navItems.map((item) => (
-            <li key={item.href} onClick={() => setIsOpen(false)} className="[&>a]:w-full [&>a]:block [&>a]:text-center">
+            <li
+              key={item.href}
+              onClick={() => setIsOpen(false)}
+              className="[&>a]:w-full [&>a]:block [&>a]:text-center"
+            >
               <NavButton href={item.href} label={t(item.key)} />
             </li>
           ))}
-          <li><LanguageSwitcher /></li>
+          <li>
+            <LanguageSwitcher />
+          </li>
         </ul>
         <div className="mt-8 [&>button]:w-full" onClick={() => setIsOpen(false)}>
           <SignOutBtn />
@@ -69,4 +67,3 @@ export default function MobileNav() {
     </>
   );
 }
-

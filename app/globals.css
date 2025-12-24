@@ -6,34 +6,31 @@
 }
 
 @theme {
-  --color-primary: #CD4527;
+  --color-primary: #cd4527;
   --color-primaryhover: #b33c22;
 
   --color-destructive: #ef4444;
-  
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  --background-image-primary-gradient: linear-gradient(
-    to right, 
-    #CD4527 0%, 
-    #B03821 100%
-  );
+  --background-image-primary-gradient: linear-gradient(to right, #cd4527 0%, #b03821 100%);
 
   --background-image-brand-gradient: linear-gradient(
-    to right, 
-    #FFF7ED 0%, 
-    #FFFFFF 50%, 
-    #FEF2F2 100%
+    to right,
+    #fff7ed 0%,
+    #ffffff 50%,
+    #fef2f2 100%
   );
 
-  --shadow-primary-lg: 0 10px 15px -3px rgba(205, 69, 39, 0.3), 
-                        0 4px 6px -4px rgba(205, 69, 39, 0.3);
+  --shadow-primary-lg:
+    0 10px 15px -3px rgba(205, 69, 39, 0.3), 0 4px 6px -4px rgba(205, 69, 39, 0.3);
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
 }

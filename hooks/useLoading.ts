@@ -2,17 +2,23 @@
 
 import { useState, useCallback } from "react";
 
+/**
+ * Manages loading state for asynchronous operations.
+ *
+ * @param initialState - Initial loading state (default: false)
+ * @returns Object containing loading state, setLoading function, and withLoading wrapper
+ */
 export function useLoading(initialState: boolean = false) {
-    const [loading, setLoading] = useState(initialState);
+  const [loading, setLoading] = useState(initialState);
 
-    const withLoading = useCallback(async <T>(fn: () => Promise<T>): Promise<T> => {
-        setLoading(true);
-        try {
-            return await fn();
-        } finally {
-            setLoading(false);
-        }
-    }, []);
+  const withLoading = useCallback(async <T>(fn: () => Promise<T>): Promise<T> => {
+    setLoading(true);
+    try {
+      return await fn();
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
-    return { loading, setLoading, withLoading };
+  return { loading, setLoading, withLoading };
 }

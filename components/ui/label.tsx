@@ -1,7 +1,7 @@
-import * as React from "react"
+import * as React from "react";
 
 function cn(...classes: (string | undefined | null | false)[]) {
-  return classes.filter(Boolean).join(" ")
+  return classes.filter(Boolean).join(" ");
 }
 
 const Label = React.forwardRef<HTMLLabelElement, React.LabelHTMLAttributes<HTMLLabelElement>>(
@@ -15,7 +15,7 @@ const Label = React.forwardRef<HTMLLabelElement, React.LabelHTMLAttributes<HTMLL
       {...props}
     />
   )
-)
-Label.displayName = "Label"
+);
+Label.displayName = "Label";
 
-export { Label }
+export { Label };

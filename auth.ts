@@ -1,7 +1,7 @@
-import NextAuth from "next-auth"
-import Credentials from "next-auth/providers/credentials"
-import { verifyPassword } from "@/utils/saltAndHashPassword"
-import { prisma } from "@/prisma/prisma"
+import NextAuth from "next-auth";
+import Credentials from "next-auth/providers/credentials";
+import { verifyPassword } from "@/lib/utils/saltAndHashPassword";
+import { prisma } from "@/prisma/prisma";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -12,11 +12,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
       authorize: async (credentials) => {
         try {
-          const email = credentials?.email as string
-          const password = credentials?.password as string
+          const email = credentials?.email as string;
+          const password = credentials?.password as string;
 
           if (!email || !password) {
-            return null
+            return null;
           }
 
           const getUserFromDb = await prisma.user.findUnique({
@@ -29,31 +29,31 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
               email: true,
               password: true,
             },
-          })
+          });
 
           // Return null if user not found
           if (!getUserFromDb) {
-            return null
+            return null;
           }
 
-          const isPasswordValid = verifyPassword(password, getUserFromDb.password)
+          const isPasswordValid = verifyPassword(password, getUserFromDb.password);
 
           // Return null if password is invalid
           if (!isPasswordValid) {
-            return null
+            return null;
           }
 
           // Return user object with their profile data
           return {
-            id: String(getUserFromDb.id), // nextAuth expects id to be a string
+            id: String(getUserFromDb.id), // next-auth expects id to be a string
             name: getUserFromDb.name,
             email: getUserFromDb.email,
-          }
+          };
         } catch (error) {
-          console.error("Auth error:", error)
-          return null
+          console.error("Auth error:", error);
+          return null;
         }
       },
     }),
   ],
-})
+});

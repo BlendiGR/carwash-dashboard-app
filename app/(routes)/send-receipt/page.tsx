@@ -1,3 +1,3 @@
 export default function SendReceipt() {
-    return <div>SendReceipt</div>;
-}   
+  return <div>SendReceipt</div>;
+}

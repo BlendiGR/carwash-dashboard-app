@@ -1,7 +1,7 @@
-import * as React from "react"
+import * as React from "react";
 
 function cn(...classes: (string | undefined | null | false)[]) {
-  return classes.filter(Boolean).join(" ")
+  return classes.filter(Boolean).join(" ");
 }
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -35,9 +35,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           </div>
         )}
       </div>
-    )
+    );
   }
-)
-Input.displayName = "Input"
+);
+Input.displayName = "Input";
 
-export { Input }
+export { Input };
