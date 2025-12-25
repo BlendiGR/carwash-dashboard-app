@@ -6,7 +6,7 @@ function cn(...classes: (string | undefined | null | false)[]) {
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
-  size?: "default" | "sm" | "lg" | "icon";
+  size?: "default" | "sm" | "lg" | "icon" | "link";
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -29,6 +29,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       sm: "h-8 rounded-md px-3 text-xs",
       lg: "h-10 rounded-md px-8",
       icon: "h-9 w-9",
+      link: "px-0 py-0",
     };
 
     const compiledClassName = cn(baseStyles, variants[variant], sizes[size], className);

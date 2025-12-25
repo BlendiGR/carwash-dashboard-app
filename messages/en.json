@@ -10,7 +10,22 @@
     "email": "Email",
     "password": "Password",
     "submit": "Login",
-    "loading": "Logging in..."
+    "loading": "Logging in...",
+    "forgotPassword": "Forgot Password"
+  },
+  "ForgotPassword": {
+    "title": "Forgot Password",
+    "subtitle": "Type your email address and we will send you a password reset code if the account exists.",
+    "email": "Email",
+    "submit": "Send Reset Code",
+    "backToLogin": "Back to Login",
+    "codeLabel": "Verification Code",
+    "codePlaceholder": "Enter 6-digit code",
+    "verifyCode": "Verify Code",
+    "codeInvalid": "Invalid code",
+    "codeMinLength": "Code must be 6 characters",
+    "codeMaxLength": "Code must be 6 characters",
+    "codeSentTo": "Enter the code sent to:"
   },
   "Pages": {
     "dashboard": "Dashboard",

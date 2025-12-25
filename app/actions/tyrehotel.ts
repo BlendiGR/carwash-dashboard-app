@@ -122,7 +122,7 @@ export async function fetchLocations() {
     select: { location: true },
     distinct: ["location"],
   });
-  return locations.map((l: { location: string }) => l.location).filter(Boolean) as string[];
+  return locations.map((l: { location: string | null }) => l.location).filter(Boolean) as string[];
 }
 
 interface CreateTyreInput {

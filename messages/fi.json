@@ -10,7 +10,22 @@
     "email": "Sähköposti",
     "password": "Salasana",
     "submit": "Kirjaudu",
-    "loading": "Kirjaudutaan..."
+    "loading": "Kirjaudutaan...",
+    "forgotPassword": "Unohditko salasanasi?"
+  },
+  "ForgotPassword": {
+    "title": "Unohditko salasanasi?",
+    "subtitle": "Kirjoita sähköpostiosoitteesi, jos sähköposti on olemassa niin lähetämme sinulle koodin.",
+    "email": "Sähköposti",
+    "submit": "Lähetä Palautuskoodi",
+    "backToLogin": "Takaisin Kirjautumiseen",
+    "codeLabel": "Vahvistuskoodi",
+    "codePlaceholder": "Syötä 6-numeroinen koodi",
+    "verifyCode": "Vahvista Koodi",
+    "codeInvalid": "Virheellinen koodi",
+    "codeMinLength": "Koodin tulee olla 6 merkkiä",
+    "codeMaxLength": "Koodin tulee olla 6 merkkiä",
+    "codeSentTo": "Syötä koodi, joka lähetettiin osoitteeseen:"
   },
   "Pages": {
     "dashboard": "Hallintapaneeli",

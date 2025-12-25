@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { LoginForm } from "@/components/ui/LoginForm";
+import { LoginForm } from "@/components/login/LoginForm";
 import { getTranslations } from "next-intl/server";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 
@@ -7,7 +7,7 @@ export default async function Home() {
   const t = await getTranslations("Login");
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-brand-gradient w-full">
+    <main className="flex min-h-screen items-center justify-center bg-brand-gradient">
       <div className="absolute top-4 right-4">
         <LanguageSwitcher />
       </div>

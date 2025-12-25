@@ -10,7 +10,15 @@
     "email": "Email",
     "password": "Fjalëkalimi",
     "submit": "Hyr",
-    "loading": "Duke hyrë..."
+    "loading": "Duke hyrë...",
+    "forgotPassword": "Harrove fjalëkalimin?"
+  },
+  "ForgotPassword": {
+    "title": "Harrove fjalëkalimin?",
+    "subtitle": "Sheno email-in e llogaritës tuaj, nëse është i ekzistuar, po dërgojme kod për resetimin e fjalëkalimit.",
+    "email": "Email",
+    "submit": "Dërgo Kodin e Resetimit",
+    "backToLogin": "Kthehu tek Hyrja"
   },
   "Pages": {
     "dashboard": "Paneli",

@@ -6,12 +6,13 @@ import { useForm } from "react-hook-form";
 import { useTranslations } from "next-intl";
 import { loginSchema, LoginData } from "@/lib/schemas/loginSchema";
 import { login } from "@/app/actions/auth";
-import { FormField } from "./form";
-import { Input } from "./input";
-import { Button } from "./button";
+import { FormField } from "../ui/form";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 import { Mail, Key } from "lucide-react";
 import { useLoading } from "@/hooks";
-import { Spinner } from "./Spinner";
+import { Spinner } from "../ui/Spinner";
+import { ForgotPassword } from "./forgotPassword";
 
 export function LoginForm() {
   const t = useTranslations("Login");
@@ -65,6 +66,7 @@ export function LoginForm() {
           {...register("password")}
         />
       </FormField>
+      <ForgotPassword />
       <Button
         type="submit"
         size="lg"
