@@ -42,11 +42,7 @@ export default async function ResetPasswordPage({ params }: Props) {
             <p className="text-sm text-white">{t("subtitle")}</p>
           </div>
           <div className="pt-30 w-full">
-            <ResetPasswordClient
-              resetToken={token}
-              userEmail={validation.email ?? null}
-              userName={validation.name ?? null}
-            />
+            <ResetPasswordClient resetToken={token} userName={validation.name ?? null} />
           </div>
         </div>
       </div>

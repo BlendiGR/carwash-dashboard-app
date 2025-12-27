@@ -12,10 +12,21 @@ const locales = [
 export default function LanguageSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
-  const [currentLocale, setCurrentLocale] = useState<string | null>(null);
   const ref = useRef<HTMLDivElement>(null);
 
+  // Get initial locale from cookie (runs once on mount)
+  const getInitialLocale = () => {
+    if (typeof document !== "undefined") {
+      const match = document.cookie.match(/locale=([^;]+)/);
+      return match ? match[1] : "en";
+    }
+    return "en";
+  };
+
+  const [currentLocale, setCurrentLocale] = useState(getInitialLocale);
+
   const handleSelect = (code: string) => {
+    setCurrentLocale(code);
     setIsOpen(false);
     startTransition(() => {
       document.cookie = `locale=${code};path=/;max-age=31536000`;
@@ -23,11 +34,8 @@ export default function LanguageSwitcher() {
     });
   };
 
+  // Click outside handler
   useEffect(() => {
-    // Read locale from cookie only on client to avoid hydration mismatch
-    const match = document.cookie.match(/locale=([^;]+)/);
-    setCurrentLocale(match ? match[1] : "en");
-
     const handleClickOutside = (e: MouseEvent) => {
       if (ref.current && !ref.current.contains(e.target as Node)) {
         setIsOpen(false);

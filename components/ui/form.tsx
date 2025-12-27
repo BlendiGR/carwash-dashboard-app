@@ -1,9 +1,6 @@
 import * as React from "react";
 import { Label } from "@/components/ui/label";
-
-function cn(...classes: (string | undefined | null | false)[]) {
-  return classes.filter(Boolean).join(" ");
-}
+import { cn } from "@/lib/utils";
 
 interface FormFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   label?: string;
@@ -16,7 +13,7 @@ const FormField = React.forwardRef<HTMLDivElement, FormFieldProps>(
     const id = React.useId();
 
     const childrenWithId = React.isValidElement(children)
-      ? React.cloneElement(children as React.ReactElement<any>, { id })
+      ? React.cloneElement(children as React.ReactElement<{ id?: string }>, { id })
       : children;
 
     return (

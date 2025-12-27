@@ -20,7 +20,7 @@ interface TyreContextType {
 
   // Actions
   refetch: () => void;
-  toggle: (id: number) => Promise<any>;
+  toggle: (id: number) => Promise<{ success: boolean; tyre?: Tyre; error?: string }>;
   toggleLoading: boolean;
 }
 

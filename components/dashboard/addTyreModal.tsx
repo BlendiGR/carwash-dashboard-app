@@ -48,15 +48,16 @@ export default function AddTyreModal({ isOpen, onClose, onSuccess }: AddTyreModa
     },
   });
 
-  // Load customers and locations when modal opens
+  // Reset state and load data when modal opens
   useEffect(() => {
-    if (isOpen) {
-      fetchCustomers().then(setCustomers);
-      fetchLocations().then(setLocations);
-      setSuccess(false);
-      setServerError(null);
-      reset();
-    }
+    if (!isOpen) return;
+
+    // Reset state synchronously before fetching
+    reset();
+
+    // Fetch data asynchronously
+    fetchCustomers().then(setCustomers);
+    fetchLocations().then(setLocations);
   }, [isOpen, reset]);
 
   // Auto-close on success

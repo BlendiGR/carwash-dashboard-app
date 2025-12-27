@@ -8,15 +8,10 @@ import { resetPassword } from "@/app/actions/resetPassword";
 
 interface ResetPasswordClientProps {
   resetToken: string;
-  userEmail: string | null;
   userName: string | null;
 }
 
-export default function ResetPasswordClient({
-  resetToken,
-  userEmail,
-  userName,
-}: ResetPasswordClientProps) {
+export default function ResetPasswordClient({ resetToken, userName }: ResetPasswordClientProps) {
   const t = useTranslations("ResetPassword");
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
@@ -39,7 +34,7 @@ export default function ResetPasswordClient({
       } else {
         setError(result.message);
       }
-    } catch (err) {
+    } catch {
       setError(t("genericError"));
     } finally {
       setIsLoading(false);
