@@ -1,6 +1,4 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { navItems } from "@/config";
 import NavButton from "../ui/navbutton";
 import Link from "next/link";
@@ -9,8 +7,8 @@ import SignOutBtn from "../ui/signoutbtn";
 import MobileNav from "./MobileNav";
 import LanguageSwitcher from "../ui/LanguageSwitcher";
 
-export default function NavBar() {
-  const t = useTranslations("Navigation");
+export default async function NavBar() {
+  const t = await getTranslations("Navigation");
 
   return (
     <nav className="flex flex-row justify-between items-center p-4 w-full shadow-md">
