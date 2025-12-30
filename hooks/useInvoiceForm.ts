@@ -49,10 +49,7 @@ export function calculateInvoiceTotals(items: InvoiceItem[]): InvoiceTotals {
     (item) => item.service && item.price && !isNaN(parseFloat(item.price))
   );
 
-  const total = validItems.reduce(
-    (sum, item) => sum + parseFloat(item.price),
-    0
-  );
+  const total = validItems.reduce((sum, item) => sum + parseFloat(item.price), 0);
 
   const vatAmount = total * (VAT_RATE / (1 + VAT_RATE));
   const subtotal = total - vatAmount;

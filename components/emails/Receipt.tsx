@@ -71,10 +71,7 @@ const Receipt = ({
 
   // Calculate totals
   const validItems = items.filter((item) => item.service && item.price);
-  const total = validItems.reduce(
-    (sum, item) => sum + (parseFloat(item.price) || 0),
-    0
-  );
+  const total = validItems.reduce((sum, item) => sum + (parseFloat(item.price) || 0), 0);
   const vatRate = 0.255;
   const vatAmount = total * (vatRate / (1 + vatRate));
   const subtotal = total - vatAmount;

@@ -119,9 +119,7 @@ export default function InvoicePreview({
                     marginBottom: "6px",
                   }}
                 >
-                  <span style={{ fontSize: "12px", color: "#666666" }}>
-                    {t.customer}
-                  </span>
+                  <span style={{ fontSize: "12px", color: "#666666" }}>{t.customer}</span>
                   <span
                     style={{
                       fontSize: "12px",
@@ -139,9 +137,7 @@ export default function InvoicePreview({
                   justifyContent: "space-between",
                 }}
               >
-                <span style={{ fontSize: "12px", color: "#666666" }}>
-                  {t.plate}
-                </span>
+                <span style={{ fontSize: "12px", color: "#666666" }}>{t.plate}</span>
                 <span
                   style={{
                     fontSize: "12px",
@@ -211,9 +207,7 @@ export default function InvoicePreview({
                       padding: "10px 0",
                     }}
                   >
-                    <span style={{ fontSize: "13px", color: "#333333" }}>
-                      {item.service}
-                    </span>
+                    <span style={{ fontSize: "13px", color: "#333333" }}>{item.service}</span>
                     <span style={{ fontSize: "13px", color: "#333333" }}>
                       €{parseFloat(item.price).toFixed(2)}
                     </span>
@@ -242,9 +236,7 @@ export default function InvoicePreview({
                   >
                     {t.subtotal}
                   </span>
-                  <span style={{ fontSize: "12px", color: "#666666" }}>
-                    €{subtotal.toFixed(2)}
-                  </span>
+                  <span style={{ fontSize: "12px", color: "#666666" }}>€{subtotal.toFixed(2)}</span>
                 </div>
 
                 <div

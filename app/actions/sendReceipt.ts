@@ -60,10 +60,7 @@ export async function sendReceipt(data: ReceiptFormData) {
     translations: pdfTranslations,
   });
 
-  const { buffer, filename } = await generatePDF(
-    pdfComponent,
-    `kuitti-${data.plate}.pdf`
-  );
+  const { buffer, filename } = await generatePDF(pdfComponent, `kuitti-${data.plate}.pdf`);
 
   // Generate email component
   const emailComponent = Receipt(data);

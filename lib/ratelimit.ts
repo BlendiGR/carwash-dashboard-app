@@ -58,17 +58,17 @@ export async function checkRateLimit(
 ): Promise<{ success: true } | { success: false; error: string }> {
   // Get IP from headers if no custom identifier provided
   const ip = identifier ?? (await headers()).get("x-forwarded-for") ?? "127.0.0.1";
-  
+
   const limiter = type === "auth" ? authRatelimit : ratelimit;
   const { success, remaining } = await limiter.limit(ip);
 
   if (!success) {
-    const message = type === "auth"
-      ? "Too many attempts. Please try again in a minute."
-      : "Too many requests. Please slow down.";
+    const message =
+      type === "auth"
+        ? "Too many attempts. Please try again in a minute."
+        : "Too many requests. Please slow down.";
     return { success: false, error: message };
   }
 
   return { success: true };
 }
-

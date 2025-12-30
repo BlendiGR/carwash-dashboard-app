@@ -1,20 +1,9 @@
-import {
-  Document,
-  Page,
-  Text,
-  View,
-  StyleSheet,
-  Font,
-  Image,
-} from "@react-pdf/renderer";
+import { Document, Page, Text, View, StyleSheet, Font, Image } from "@react-pdf/renderer";
 
 /** Register default font for consistent rendering */
 Font.register({
   family: "Helvetica",
-  fonts: [
-    { src: "Helvetica" },
-    { src: "Helvetica-Bold", fontWeight: "bold" },
-  ],
+  fonts: [{ src: "Helvetica" }, { src: "Helvetica-Bold", fontWeight: "bold" }],
 });
 
 export type ReceiptPDFItem = {
@@ -208,10 +197,7 @@ const ReceiptPDF = ({
   translations: t,
 }: ReceiptPDFProps) => {
   const validItems = items.filter((item) => item.service && item.price);
-  const total = validItems.reduce(
-    (sum, item) => sum + (parseFloat(item.price) || 0),
-    0
-  );
+  const total = validItems.reduce((sum, item) => sum + (parseFloat(item.price) || 0), 0);
   const vatRate = 0.255;
   const vatAmount = total * (vatRate / (1 + vatRate));
   const subtotal = total - vatAmount;
@@ -258,9 +244,7 @@ const ReceiptPDF = ({
               <Text style={styles.tableText}>{item.service}</Text>
             </View>
             <View style={styles.priceColumn}>
-              <Text style={styles.tableText}>
-                € {parseFloat(item.price).toFixed(2)}
-              </Text>
+              <Text style={styles.tableText}>€ {parseFloat(item.price).toFixed(2)}</Text>
             </View>
           </View>
         ))}

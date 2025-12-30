@@ -38,9 +38,7 @@ export default function InvoiceItem({
           {...register(`items.${index}.service`)}
           className={serviceError ? "border-red-500" : ""}
         />
-        {serviceError && (
-          <span className="text-xs text-red-500">{serviceError}</span>
-        )}
+        {serviceError && <span className="text-xs text-red-500">{serviceError}</span>}
       </div>
 
       {/* Price Input */}
@@ -52,9 +50,7 @@ export default function InvoiceItem({
           {...register(`items.${index}.price`)}
           className={priceError ? "border-red-500" : ""}
         />
-        {priceError && (
-          <span className="text-xs text-red-500">{priceError}</span>
-        )}
+        {priceError && <span className="text-xs text-red-500">{priceError}</span>}
       </div>
 
       {/* Remove Button */}

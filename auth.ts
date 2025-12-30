@@ -19,6 +19,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             return null;
           }
 
+          // Get user from database
           const getUserFromDb = await prisma.user.findUnique({
             where: {
               email: email,
@@ -36,6 +37,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             return null;
           }
 
+          // Verify password
           const isPasswordValid = verifyPassword(password, getUserFromDb.password);
 
           // Return null if password is invalid
@@ -50,6 +52,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             email: getUserFromDb.email,
           };
         } catch (error) {
+          // Log error
           console.error("Auth error:", error);
           return null;
         }

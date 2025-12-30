@@ -17,15 +17,10 @@ export const invoiceItemSchema = z.object({
 
 /** Validation schema for send receipt form */
 export const receiptSchema = z.object({
-  email: z
-    .string()
-    .min(1, "Email is required")
-    .regex(EMAIL_REGEX, "Invalid email format"),
+  email: z.string().min(1, "Email is required").regex(EMAIL_REGEX, "Invalid email format"),
   customerName: z.string().optional(),
   plate: z.string().min(1, "Plate number is required"),
-  items: z
-    .array(invoiceItemSchema)
-    .min(1, "At least one invoice item is required"),
+  items: z.array(invoiceItemSchema).min(1, "At least one invoice item is required"),
 });
 
 export type InvoiceItem = z.infer<typeof invoiceItemSchema>;
