@@ -5,36 +5,46 @@ import { Button } from "../ui/button";
 import { Undo2, Package } from "lucide-react";
 import ConfirmDialog from "../ui/confirm-dialog";
 import { useTranslations } from "next-intl";
+import { toggleTyreStatus } from "@/app/actions/tyrehotel";
 
 interface TyreCardProps {
-  id: number;
-  customerName?: string;
-  plate: string;
-  number: string;
-  location?: string;
-  dateStored?: Date | null;
-  deletedAt?: Date | null;
-  isStored: boolean;
-  onToggleStatus?: (id: number) => Promise<{ success: boolean; error?: string }>;
+  tyre: {
+    id: number;
+    plate: string;
+    number: string;
+    location: string | null;
+    dateStored: Date | null;
+    deletedAt: Date | null;
+    isStored: boolean;
+    customer: { name: string } | null;
+  };
 }
 
-export default function TyreCard({
-  id,
-  customerName,
-  plate,
-  number,
-  location,
-  dateStored,
-  deletedAt,
-  isStored,
-  onToggleStatus,
-}: TyreCardProps) {
+/**
+ * TyreCard - Client Component for displaying and interacting with a tyre record.
+ *
+ * Displays tyre details and provides toggle functionality for check-in/check-out.
+ * Uses server action directly with revalidatePath for data refresh.
+ */
+export default function TyreCard({ tyre }: TyreCardProps) {
   const [showConfirm, setShowConfirm] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const t = useTranslations("TyreCard");
   const tConfirm = useTranslations("ConfirmDialog");
 
+  const { id, plate, number, location, dateStored, deletedAt, isStored, customer } = tyre;
   const displayDate = isStored ? dateStored : deletedAt;
   const formattedDate = displayDate ? new Date(displayDate).toLocaleDateString("fi-FI") : "—";
+
+  const handleToggle = async () => {
+    setIsLoading(true);
+    try {
+      await toggleTyreStatus(id);
+    } finally {
+      setIsLoading(false);
+      setShowConfirm(false);
+    }
+  };
 
   return (
     <div
@@ -52,7 +62,7 @@ export default function TyreCard({
       </div>
       <div className="mb-3">
         <p className="text-sm text-gray-400">{t("customer")}</p>
-        <p className="text-lg font-semibold text-gray-900">{customerName || "—"}</p>
+        <p className="text-lg font-semibold text-gray-900">{customer?.name || "—"}</p>
       </div>
       <div className="mb-3">
         <p className="text-sm text-gray-400">{t("plate")}</p>
@@ -73,6 +83,7 @@ export default function TyreCard({
           size="sm"
           onClick={() => setShowConfirm(true)}
           className="rounded-xl"
+          disabled={isLoading}
         >
           {isStored ? (
             <>
@@ -91,11 +102,9 @@ export default function TyreCard({
       <ConfirmDialog
         isOpen={showConfirm}
         onClose={() => setShowConfirm(false)}
-        onConfirm={() => onToggleStatus?.(id)}
+        onConfirm={handleToggle}
         title={isStored ? tConfirm("returnTitle") : tConfirm("storeTitle")}
-        message={
-          isStored ? tConfirm("returnMessage", { plate }) : tConfirm("storeMessage", { plate })
-        }
+        message={isStored ? tConfirm("returnMessage", { plate }) : tConfirm("storeMessage", { plate })}
         confirmLabel={isStored ? t("returnButton") : t("storeButton")}
         variant={isStored ? "destructive" : "default"}
       />

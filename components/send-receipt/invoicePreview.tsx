@@ -21,6 +21,11 @@ interface InvoicePreviewProps {
   };
 }
 
+/**
+ * InvoicePreview - Live preview of the invoice that will be sent via email.
+ *
+ * Mirrors the Receipt email template styling for accurate preview.
+ */
 export default function InvoicePreview({
   customerName,
   plate,
@@ -44,171 +49,63 @@ export default function InvoicePreview({
       {/* Preview Label */}
       <div className="text-sm font-medium text-gray-500 mb-3">{t.preview}</div>
 
-      {/* Email Container - matches Receipt.tsx styling */}
-      <div
-        style={{
-          fontFamily:
-            '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-          backgroundColor: "#f5f5f5",
-          padding: "24px 16px",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "560px",
-            margin: "0 auto",
-            backgroundColor: "#ffffff",
-            border: "1px solid #e0e0e0",
-          }}
-        >
+      {/* Email Container */}
+      <div className="bg-gray-100 p-4 sm:p-6 font-sans">
+        <div className="max-w-[560px] mx-auto bg-white border border-gray-200">
           {/* Header */}
-          <div
-            style={{
-              padding: "24px 32px",
-              borderBottom: "1px solid #e0e0e0",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
-            }}
-          >
+          <div className="p-6 sm:px-8 border-b border-gray-200 flex justify-between items-start">
             <Image
               src="/logo-opus.png"
               alt="AutoSpa Opus"
               width={80}
               height={40}
-              style={{ objectFit: "contain" }}
+              className="object-contain"
             />
-            <div style={{ textAlign: "right" }}>
-              <h3
-                style={{
-                  fontSize: "18px",
-                  fontWeight: "600",
-                  color: "#333333",
-                  margin: "0 0 4px 0",
-                }}
-              >
-                {t.invoice}
-              </h3>
-              <p
-                style={{
-                  fontSize: "12px",
-                  color: "#666666",
-                  margin: 0,
-                }}
-              >
-                {currentDate}
-              </p>
+            <div className="text-right">
+              <h3 className="text-lg font-semibold text-gray-800 mb-1">{t.invoice}</h3>
+              <p className="text-xs text-gray-500">{currentDate}</p>
             </div>
           </div>
 
           {/* Customer Details */}
-          <div style={{ padding: "20px 32px" }}>
+          <div className="p-5 sm:px-8">
             {/* Customer Info Box */}
-            <div
-              style={{
-                backgroundColor: "#fafafa",
-                padding: "14px 16px",
-                marginBottom: "20px",
-              }}
-            >
+            <div className="bg-gray-50 p-4 mb-5">
               {customerName && (
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    marginBottom: "6px",
-                  }}
-                >
-                  <span style={{ fontSize: "12px", color: "#666666" }}>{t.customer}</span>
-                  <span
-                    style={{
-                      fontSize: "12px",
-                      fontWeight: "500",
-                      color: "#333333",
-                    }}
-                  >
-                    {customerName}
-                  </span>
+                <div className="flex justify-between mb-1.5">
+                  <span className="text-xs text-gray-500">{t.customer}</span>
+                  <span className="text-xs font-medium text-gray-800">{customerName}</span>
                 </div>
               )}
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                <span style={{ fontSize: "12px", color: "#666666" }}>{t.plate}</span>
-                <span
-                  style={{
-                    fontSize: "12px",
-                    fontWeight: "500",
-                    color: "#333333",
-                  }}
-                >
-                  {plate || "—"}
-                </span>
+              <div className="flex justify-between">
+                <span className="text-xs text-gray-500">{t.plate}</span>
+                <span className="text-xs font-medium text-gray-800">{plate || "—"}</span>
               </div>
             </div>
 
             {/* Services Table */}
-            <div style={{ marginBottom: "20px" }}>
+            <div className="mb-5">
               {/* Table Header */}
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  borderBottom: "2px solid #333333",
-                  paddingBottom: "6px",
-                  marginBottom: "8px",
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: "11px",
-                    fontWeight: "600",
-                    textTransform: "uppercase",
-                    color: "#333333",
-                  }}
-                >
+              <div className="flex justify-between border-b-2 border-gray-800 pb-1.5 mb-2">
+                <span className="text-[11px] font-semibold uppercase text-gray-800">
                   {t.service}
                 </span>
-                <span
-                  style={{
-                    fontSize: "11px",
-                    fontWeight: "600",
-                    textTransform: "uppercase",
-                    color: "#333333",
-                  }}
-                >
+                <span className="text-[11px] font-semibold uppercase text-gray-800">
                   {t.price}
                 </span>
               </div>
 
               {/* Table Rows */}
               {validItems.length === 0 ? (
-                <div
-                  style={{
-                    textAlign: "center",
-                    padding: "24px 0",
-                    color: "#999999",
-                    fontSize: "13px",
-                  }}
-                >
-                  {t.noItems}
-                </div>
+                <div className="text-center py-6 text-gray-400 text-sm">{t.noItems}</div>
               ) : (
                 validItems.map((item) => (
                   <div
                     key={item.id}
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      borderBottom: "1px solid #e0e0e0",
-                      padding: "10px 0",
-                    }}
+                    className="flex justify-between border-b border-gray-200 py-2.5"
                   >
-                    <span style={{ fontSize: "13px", color: "#333333" }}>{item.service}</span>
-                    <span style={{ fontSize: "13px", color: "#333333" }}>
+                    <span className="text-sm text-gray-800">{item.service}</span>
+                    <span className="text-sm text-gray-800">
                       €{parseFloat(item.price).toFixed(2)}
                     </span>
                   </div>
@@ -219,125 +116,33 @@ export default function InvoicePreview({
             {/* Totals */}
             {validItems.length > 0 && (
               <div>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    marginBottom: "4px",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "12px",
-                      color: "#666666",
-                      marginLeft: "auto",
-                      marginRight: "40px",
-                    }}
-                  >
-                    {t.subtotal}
-                  </span>
-                  <span style={{ fontSize: "12px", color: "#666666" }}>€{subtotal.toFixed(2)}</span>
+                <div className="flex justify-end gap-10 mb-1">
+                  <span className="text-xs text-gray-500">{t.subtotal}</span>
+                  <span className="text-xs text-gray-500">€{subtotal.toFixed(2)}</span>
                 </div>
 
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    marginBottom: "8px",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "12px",
-                      color: "#666666",
-                      marginLeft: "auto",
-                      marginRight: "40px",
-                    }}
-                  >
-                    {t.vat} (25.5%)
-                  </span>
-                  <span style={{ fontSize: "12px", color: "#666666" }}>
-                    €{vatAmount.toFixed(2)}
-                  </span>
+                <div className="flex justify-end gap-10 mb-2">
+                  <span className="text-xs text-gray-500">{t.vat} (25.5%)</span>
+                  <span className="text-xs text-gray-500">€{vatAmount.toFixed(2)}</span>
                 </div>
 
-                <div
-                  style={{
-                    borderTop: "1px solid #333333",
-                    paddingTop: "8px",
-                    display: "flex",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: "14px",
-                      fontWeight: "600",
-                      color: "#333333",
-                      marginLeft: "auto",
-                      marginRight: "40px",
-                    }}
-                  >
-                    {t.total}
-                  </span>
-                  <span
-                    style={{
-                      fontSize: "14px",
-                      fontWeight: "600",
-                      color: "#333333",
-                    }}
-                  >
-                    €{total.toFixed(2)}
-                  </span>
+                <div className="border-t border-gray-800 pt-2 flex justify-end gap-10">
+                  <span className="text-sm font-semibold text-gray-800">{t.total}</span>
+                  <span className="text-sm font-semibold text-gray-800">€{total.toFixed(2)}</span>
                 </div>
               </div>
             )}
           </div>
 
           {/* Footer */}
-          <div
-            style={{
-              padding: "20px 32px",
-              borderTop: "1px solid #e0e0e0",
-              backgroundColor: "#fafafa",
-              textAlign: "center",
-            }}
-          >
-            <p
-              style={{
-                fontSize: "12px",
-                color: "#666666",
-                margin: "0 0 4px 0",
-              }}
-            >
-              {t.thankYou}
-            </p>
-            <p
-              style={{
-                fontSize: "11px",
-                color: "#999999",
-                margin: 0,
-              }}
-            >
-              {t.footer}
-            </p>
+          <div className="p-5 sm:px-8 border-t border-gray-200 bg-gray-50 text-center">
+            <p className="text-xs text-gray-500 mb-1">{t.thankYou}</p>
+            <p className="text-[11px] text-gray-400">{t.footer}</p>
           </div>
 
           {/* Copyright */}
-          <div
-            style={{
-              padding: "14px 32px",
-              borderTop: "1px solid #e0e0e0",
-              textAlign: "center",
-            }}
-          >
-            <p
-              style={{
-                fontSize: "10px",
-                color: "#999999",
-                margin: 0,
-              }}
-            >
+          <div className="py-3.5 px-8 border-t border-gray-200 text-center">
+            <p className="text-[10px] text-gray-400">
               © {new Date().getFullYear()} AutoSpa Opus. All rights reserved.
             </p>
           </div>

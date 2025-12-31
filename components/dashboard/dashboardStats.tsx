@@ -1,52 +1,38 @@
-"use client";
-
 import { Package, Users, MapPin } from "lucide-react";
-import { useCustomerCount } from "@/hooks";
+import { tyreCounts, customerCount } from "@/app/actions/tyrehotel";
 import DashboardCard from "./dashboardCard";
-import { useTranslations } from "next-intl";
-import { useTyreContext } from "@/contexts/TyreContext";
+import { getTranslations } from "next-intl/server";
 
-export default function DashboardStats() {
-  const t = useTranslations("Dashboard");
-  const { counts: tyreCounts, countsLoading: tyreLoading } = useTyreContext();
-  const { count: customerCount, loading: customerLoading } = useCustomerCount();
+/**
+ * Dashboard statistics section - Server Component
+ *
+ * Fetches and displays tyre counts, customer count, and location breakdown.
+ * Uses Suspense for loading state (skeleton is handled by parent).
+ */
+export default async function DashboardStats() {
+  const t = await getTranslations("Dashboard");
 
-  const loading = tyreLoading || customerLoading;
-
-  if (loading) {
-    return (
-      <div className="flex flex-col gap-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="h-24 bg-gray-200 rounded-lg animate-pulse" />
-          <div className="h-24 bg-gray-200 rounded-lg animate-pulse" />
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <div className="h-16 bg-gray-200 rounded-lg animate-pulse" />
-          <div className="h-16 bg-gray-200 rounded-lg animate-pulse" />
-        </div>
-      </div>
-    );
-  }
+  const [counts, custCount] = await Promise.all([tyreCounts(), customerCount()]);
 
   return (
     <div className="flex flex-col gap-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <DashboardCard
           title={t("totalTyres")}
-          value={tyreCounts.total}
+          value={counts.total}
           icon={<Package className="w-6 h-6" />}
           accentColor="blue"
         />
         <DashboardCard
           title={t("totalCustomers")}
-          value={customerCount}
+          value={custCount}
           icon={<Users className="w-6 h-6" />}
           accentColor="green"
         />
       </div>
-      {tyreCounts.countsByLocation.length > 0 && (
+      {counts.countsByLocation.length > 0 && (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-          {tyreCounts.countsByLocation.map((loc) => (
+          {counts.countsByLocation.map((loc) => (
             <div
               key={loc.location}
               className="flex flex-col items-center justify-center p-3 bg-white border border-gray-200 rounded-lg hover:shadow-md transition-shadow"

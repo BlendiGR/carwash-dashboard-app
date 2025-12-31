@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { prisma } from "@/prisma/prisma";
 import { tyreSchema } from "@/lib/schemas/tyreSchema";
 import { PAGE_SIZE } from "@/lib/constants";
@@ -160,6 +161,7 @@ export async function createTyre(data: CreateTyreInput) {
       },
       include: { customer: true },
     });
+    revalidatePath("/dashboard");
     return { success: true, tyre };
   } catch (error) {
     if (error instanceof Error && error.message.includes("Unique constraint")) {
@@ -196,6 +198,7 @@ export async function toggleTyreStatus(id: number) {
       include: { customer: true },
     });
 
+    revalidatePath("/dashboard");
     return { success: true, tyre: updatedTyre };
   } catch (error) {
     console.error("Failed to toggle tyre status:", error);
