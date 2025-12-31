@@ -1,8 +1,9 @@
 "use server";
 
+import { getTranslations } from "next-intl/server";
 import { prisma } from "@/prisma/prisma";
 import { sendEmail } from "@/services/email";
-import PasswordChangeCode, { EmailTranslations } from "@/components/emails/PasswordChangeCode";
+import PasswordChangeCode from "@/components/emails/PasswordChangeCode";
 import crypto from "crypto";
 import { cookies } from "next/headers";
 import { RESET_TOKEN_EXPIRY_MS } from "@/lib/constants";
@@ -16,22 +17,6 @@ import { checkRateLimit } from "@/lib/ratelimit";
 function generateSecureCode(): string {
   const code = crypto.randomInt(100000, 1000000);
   return code.toString();
-}
-
-/**
- * Retrieves email translations based on the user's locale.
- *
- * @param locale - The locale code (e.g., "en", "fi", "sq")
- * @returns Promise resolving to the email translations object
- */
-async function getEmailTranslations(locale: string): Promise<EmailTranslations> {
-  try {
-    const messages = (await import(`@/messages/${locale}.json`)).default;
-    return messages.PasswordEmail;
-  } catch {
-    const messages = (await import(`@/messages/en.json`)).default;
-    return messages.PasswordEmail;
-  }
 }
 
 /**
@@ -67,7 +52,10 @@ export async function forgotPassword(email: string) {
 
   const store = await cookies();
   const locale = store.get("locale")?.value || "en";
-  const translations = await getEmailTranslations(locale);
+  
+  // Get translation function for PasswordEmail namespace
+  // Fallback will happen automatically if locale isn't found
+  const t = await getTranslations({ locale, namespace: "PasswordEmail" });
 
   try {
     await sendEmail({
@@ -76,7 +64,7 @@ export async function forgotPassword(email: string) {
       component: PasswordChangeCode({
         name: user.name || "User",
         code,
-        translations,
+        t, // Pass translation function directly
       }),
     });
 

@@ -5,3 +5,6 @@ import { twMerge } from "tailwind-merge";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+/** Translation function type for passing to components */
+export type TranslationFunction = (key: string) => string;

@@ -117,6 +117,7 @@
     "customerName": "Asiakkaan Nimi",
     "customerNamePlaceholder": "Syötä asiakkaan nimi",
     "plate": "Rekisterinumero",
+    "language": "Kuitin kieli",
     "optional": "valinnainen",
     "invoiceItems": "Laskurivit",
     "addItem": "Lisää Rivi",
@@ -134,10 +135,19 @@
     "noItems": "Lisää rivejä nähdäksesi esikatselun",
     "thankYou": "Kiitos kun valitsit AutoSpa Opuksen!",
     "footer": "Odotamme innolla palvelevamme sinua uudelleen.",
+    "emailGreeting": "Hei",
+    "emailReceiptMessage": "Kiitos käynnistäsi AutoSpa Opuksessa! Liitteenä on kuitti ajoneuvollesi",
+    "emailKeepReceipt": "Säilytäthän kuitin tarvittaessa kirjanpitoa varten.",
     "submit": "Lähetä Lasku",
     "sending": "Lähetetään...",
     "success": "Lasku Lähetetty!",
     "successDescription": "Lasku on lähetetty asiakkaan sähköpostiin.",
-    "genericError": "Jotain meni pieleen. Yritä uudelleen."
+    "genericError": "Jotain meni pieleen. Yritä uudelleen.",
+    "phoneLabel": "Puh:",
+    "emailLabel": "Sähköposti:",
+    "websiteLabel": "Nettisivut:",
+    "addressLabel": "Osoite:",
+    "businessIdLabel": "Y-tunnus:"
   }
 }
+

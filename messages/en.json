@@ -117,6 +117,7 @@
     "customerName": "Customer Name",
     "customerNamePlaceholder": "Enter customer name",
     "plate": "Plate Number",
+    "language": "Receipt Language",
     "optional": "optional",
     "invoiceItems": "Invoice Items",
     "addItem": "Add Item",
@@ -134,10 +135,19 @@
     "noItems": "Add items to see preview",
     "thankYou": "Thank you for choosing AutoSpa Opus!",
     "footer": "We look forward to serving you again.",
+    "emailGreeting": "Hello",
+    "emailReceiptMessage": "Thank you for visiting AutoSpa Opus! Attached is the receipt for your vehicle",
+    "emailKeepReceipt": "Please keep this receipt for your records.",
     "submit": "Send Invoice",
     "sending": "Sending...",
     "success": "Invoice Sent!",
     "successDescription": "The invoice has been sent to the customer's email.",
-    "genericError": "Something went wrong. Please try again."
+    "genericError": "Failed to send receipt. Please try again.",
+    "phoneLabel": "Phone:",
+    "emailLabel": "Email:",
+    "websiteLabel": "Website:",
+    "addressLabel": "Address:",
+    "businessIdLabel": "Business ID:"
   }
 }
+

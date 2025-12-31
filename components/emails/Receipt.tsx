@@ -3,78 +3,27 @@ import {
   Head,
   Body,
   Container,
-  Heading,
   Text,
   Img,
   Section,
-  Row,
-  Column,
-  Hr,
   Preview,
 } from "@react-email/components";
+import { TranslationFunction } from "@/lib/utils";
 
-export type ReceiptEmailTranslations = {
-  preview: string;
-  invoice: string;
-  greeting: string;
-  description: string;
-  customer: string;
-  plate: string;
-  service: string;
-  price: string;
-  subtotal: string;
-  vat: string;
-  total: string;
-  thankYou: string;
-  footer: string;
-  copyright: string;
-};
-
-export type ReceiptItem = {
-  id: string;
-  service: string;
-  price: string;
-};
-
-export type ReceiptEmailProps = {
+interface ReceiptEmailProps {
   customerName?: string;
   plate: string;
-  items: ReceiptItem[];
-  translations?: ReceiptEmailTranslations;
-};
+  t: TranslationFunction;
+}
 
-/** Default English translations */
-const defaultTranslations: ReceiptEmailTranslations = {
-  preview: "Your receipt from AutoSpa Opus",
-  invoice: "Receipt",
-  greeting: "Thank you for your visit!",
-  description: "Here's a summary of the services provided for your vehicle.",
-  customer: "Customer",
-  plate: "License Plate",
-  service: "Service",
-  price: "Price",
-  subtotal: "Subtotal",
-  vat: "VAT",
-  total: "Total",
-  thankYou: "Thank you for choosing AutoSpa Opus!",
-  footer: "We look forward to serving you again.",
-  copyright: "All rights reserved.",
-};
-
-const Receipt = ({
-  customerName,
-  plate,
-  items,
-  translations = defaultTranslations,
-}: ReceiptEmailProps) => {
-  const t = translations;
-
-  // Calculate totals
-  const validItems = items.filter((item) => item.service && item.price);
-  const total = validItems.reduce((sum, item) => sum + (parseFloat(item.price) || 0), 0);
-  const vatRate = 0.255;
-  const vatAmount = total * (vatRate / (1 + vatRate));
-  const subtotal = total - vatAmount;
+/**
+ * Simple receipt email - the PDF attachment contains all invoice details.
+ * Accepts a translation function for localized content.
+ */
+const Receipt = ({ customerName, plate, t }: ReceiptEmailProps) => {
+  const greeting = customerName
+    ? `${t("emailGreeting")} ${customerName}!`
+    : `${t("emailGreeting")}!`;
 
   return (
     <Html>
@@ -82,9 +31,7 @@ const Receipt = ({
         <meta name="color-scheme" content="light only" />
         <meta name="supported-color-schemes" content="light only" />
       </Head>
-      <Preview>
-        {t.preview} - {plate}
-      </Preview>
+      <Preview>AutoSpa Opus - {plate}</Preview>
       <Body
         style={{
           fontFamily:
@@ -96,345 +43,97 @@ const Receipt = ({
       >
         <Container
           style={{
-            maxWidth: "560px",
+            maxWidth: "500px",
             margin: "0 auto",
             backgroundColor: "#ffffff",
             border: "1px solid #e0e0e0",
+            borderRadius: "8px",
+            padding: "40px",
           }}
         >
-          {/* Header */}
-          <Section
-            style={{
-              padding: "32px 40px",
-              borderBottom: "1px solid #e0e0e0",
-            }}
-          >
-            <Row>
-              <Column style={{ width: "50%" }}>
-                <Img
-                  src="https://raw.githubusercontent.com/BlendiGR/autospa-opus/refs/heads/main/public/logo-opus.png?token=GHSAT0AAAAAADPB2SKD4SQRNUY6C5SHUBRA2KQCFJQ"
-                  alt="AutoSpa Opus"
-                  width="100"
-                />
-              </Column>
-              <Column style={{ width: "50%", textAlign: "right" }}>
-                <Heading
-                  style={{
-                    fontSize: "20px",
-                    fontWeight: "600",
-                    color: "#333333",
-                    margin: "0 0 4px 0",
-                  }}
-                >
-                  {t.invoice}
-                </Heading>
-                <Text
-                  style={{
-                    fontSize: "13px",
-                    color: "#666666",
-                    margin: 0,
-                  }}
-                >
-                  {new Date().toLocaleDateString("fi-FI", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </Text>
-              </Column>
-            </Row>
+          {/* Logo */}
+          <Section style={{ textAlign: "center", marginBottom: "32px" }}>
+            <Img
+              src="https://raw.githubusercontent.com/BlendiGR/autospa-opus/refs/heads/main/public/logo-opus.png"
+              alt="AutoSpa Opus"
+              width="120"
+              style={{ margin: "0 auto" }}
+            />
           </Section>
 
-          {/* Customer Details */}
-          <Section style={{ padding: "24px 40px" }}>
+          {/* Message */}
+          <Section>
             <Text
               style={{
-                fontSize: "14px",
+                fontSize: "18px",
+                fontWeight: "600",
                 color: "#333333",
                 margin: "0 0 16px 0",
-                lineHeight: "22px",
               }}
             >
-              {t.greeting}
-              <br />
-              {t.description}
+              {greeting}
             </Text>
-
-            <Section
+            <Text
               style={{
-                backgroundColor: "#fafafa",
-                padding: "16px 20px",
-                marginBottom: "24px",
+                fontSize: "15px",
+                color: "#555555",
+                lineHeight: "24px",
+                margin: "0 0 16px 0",
               }}
             >
-              {customerName && (
-                <Row style={{ marginBottom: "8px" }}>
-                  <Column style={{ width: "40%" }}>
-                    <Text
-                      style={{
-                        fontSize: "13px",
-                        color: "#666666",
-                        margin: 0,
-                      }}
-                    >
-                      {t.customer}
-                    </Text>
-                  </Column>
-                  <Column style={{ width: "60%" }}>
-                    <Text
-                      style={{
-                        fontSize: "13px",
-                        fontWeight: "500",
-                        color: "#333333",
-                        margin: 0,
-                        textAlign: "right",
-                      }}
-                    >
-                      {customerName}
-                    </Text>
-                  </Column>
-                </Row>
-              )}
-              <Row>
-                <Column style={{ width: "40%" }}>
-                  <Text
-                    style={{
-                      fontSize: "13px",
-                      color: "#666666",
-                      margin: 0,
-                    }}
-                  >
-                    {t.plate}
-                  </Text>
-                </Column>
-                <Column style={{ width: "60%" }}>
-                  <Text
-                    style={{
-                      fontSize: "13px",
-                      fontWeight: "500",
-                      color: "#333333",
-                      margin: 0,
-                      textAlign: "right",
-                    }}
-                  >
-                    {plate}
-                  </Text>
-                </Column>
-              </Row>
-            </Section>
-
-            {/* Services Table */}
-            <Section style={{ marginBottom: "24px" }}>
-              {/* Table Header */}
-              <Row
-                style={{
-                  borderBottom: "2px solid #333333",
-                  paddingBottom: "8px",
-                }}
-              >
-                <Column style={{ width: "70%" }}>
-                  <Text
-                    style={{
-                      fontSize: "12px",
-                      fontWeight: "600",
-                      textTransform: "uppercase" as const,
-                      color: "#333333",
-                      margin: 0,
-                    }}
-                  >
-                    {t.service}
-                  </Text>
-                </Column>
-                <Column style={{ width: "30%", textAlign: "right" }}>
-                  <Text
-                    style={{
-                      fontSize: "12px",
-                      fontWeight: "600",
-                      textTransform: "uppercase" as const,
-                      color: "#333333",
-                      margin: 0,
-                    }}
-                  >
-                    {t.price}
-                  </Text>
-                </Column>
-              </Row>
-
-              {/* Table Rows */}
-              {validItems.map((item) => (
-                <Row
-                  key={item.id}
-                  style={{
-                    borderBottom: "1px solid #e0e0e0",
-                    padding: "12px 0",
-                  }}
-                >
-                  <Column style={{ width: "70%" }}>
-                    <Text
-                      style={{
-                        fontSize: "14px",
-                        color: "#333333",
-                        margin: 0,
-                      }}
-                    >
-                      {item.service}
-                    </Text>
-                  </Column>
-                  <Column style={{ width: "30%", textAlign: "right" }}>
-                    <Text
-                      style={{
-                        fontSize: "14px",
-                        color: "#333333",
-                        margin: 0,
-                      }}
-                    >
-                      €{parseFloat(item.price).toFixed(2)}
-                    </Text>
-                  </Column>
-                </Row>
-              ))}
-            </Section>
-
-            {/* Totals */}
-            <Section>
-              <Row style={{ marginBottom: "4px" }}>
-                <Column style={{ width: "70%" }}>
-                  <Text
-                    style={{
-                      fontSize: "13px",
-                      color: "#666666",
-                      margin: 0,
-                      textAlign: "right",
-                    }}
-                  >
-                    {t.subtotal}
-                  </Text>
-                </Column>
-                <Column style={{ width: "30%", textAlign: "right" }}>
-                  <Text
-                    style={{
-                      fontSize: "13px",
-                      color: "#666666",
-                      margin: 0,
-                    }}
-                  >
-                    €{subtotal.toFixed(2)}
-                  </Text>
-                </Column>
-              </Row>
-
-              <Row style={{ marginBottom: "8px" }}>
-                <Column style={{ width: "70%" }}>
-                  <Text
-                    style={{
-                      fontSize: "13px",
-                      color: "#666666",
-                      margin: 0,
-                      textAlign: "right",
-                    }}
-                  >
-                    {t.vat} (25.5%)
-                  </Text>
-                </Column>
-                <Column style={{ width: "30%", textAlign: "right" }}>
-                  <Text
-                    style={{
-                      fontSize: "13px",
-                      color: "#666666",
-                      margin: 0,
-                    }}
-                  >
-                    €{vatAmount.toFixed(2)}
-                  </Text>
-                </Column>
-              </Row>
-
-              <Hr
-                style={{
-                  borderColor: "#333333",
-                  borderWidth: "1px",
-                  margin: "8px 0",
-                }}
-              />
-
-              <Row>
-                <Column style={{ width: "70%" }}>
-                  <Text
-                    style={{
-                      fontSize: "16px",
-                      fontWeight: "600",
-                      color: "#333333",
-                      margin: 0,
-                      textAlign: "right",
-                    }}
-                  >
-                    {t.total}
-                  </Text>
-                </Column>
-                <Column style={{ width: "30%", textAlign: "right" }}>
-                  <Text
-                    style={{
-                      fontSize: "16px",
-                      fontWeight: "600",
-                      color: "#333333",
-                      margin: 0,
-                    }}
-                  >
-                    €{total.toFixed(2)}
-                  </Text>
-                </Column>
-              </Row>
-            </Section>
+              {t("emailReceiptMessage")} <strong>{plate}</strong>.
+            </Text>
+            <Text
+              style={{
+                fontSize: "15px",
+                color: "#555555",
+                lineHeight: "24px",
+                margin: "0 0 24px 0",
+              }}
+            >
+              {t("emailKeepReceipt")}
+            </Text>
           </Section>
 
           {/* Footer */}
           <Section
             style={{
-              padding: "24px 40px",
               borderTop: "1px solid #e0e0e0",
-              backgroundColor: "#fafafa",
+              paddingTop: "24px",
+              marginTop: "16px",
             }}
           >
             <Text
               style={{
-                fontSize: "13px",
+                fontSize: "14px",
                 color: "#666666",
                 margin: "0 0 4px 0",
-                textAlign: "center",
               }}
             >
-              {t.thankYou}
+              {t("thankYou")}
             </Text>
             <Text
               style={{
-                fontSize: "12px",
+                fontSize: "13px",
                 color: "#999999",
                 margin: 0,
-                textAlign: "center",
               }}
             >
-              {t.footer}
+              {t("footer")}
             </Text>
           </Section>
 
           {/* Copyright */}
-          <Section
+          <Text
             style={{
-              padding: "16px 40px",
-              borderTop: "1px solid #e0e0e0",
+              fontSize: "11px",
+              color: "#999999",
+              margin: "24px 0 0 0",
+              textAlign: "center",
             }}
           >
-            <Text
-              style={{
-                fontSize: "11px",
-                color: "#999999",
-                margin: 0,
-                textAlign: "center",
-              }}
-            >
-              © {new Date().getFullYear()} AutoSpa Opus. {t.copyright}
-            </Text>
-          </Section>
+            © {new Date().getFullYear()} AutoSpa Opus
+          </Text>
         </Container>
       </Body>
     </Html>

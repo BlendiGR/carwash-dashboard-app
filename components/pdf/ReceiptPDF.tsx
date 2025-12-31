@@ -1,4 +1,5 @@
 import { Document, Page, Text, View, StyleSheet, Font, Image } from "@react-pdf/renderer";
+import { TranslationFunction } from "@/lib/utils";
 
 /** Register default font for consistent rendering */
 Font.register({
@@ -18,17 +19,13 @@ export type ReceiptPDFProps = {
   items: ReceiptPDFItem[];
   date: string;
   logoUrl: string;
-  translations: {
-    invoice: string;
-    customer: string;
-    plate: string;
-    service: string;
-    price: string;
-    subtotal: string;
-    vat: string;
-    total: string;
-    thankYou: string;
-    footer: string;
+  t: TranslationFunction;
+  businessInfo: {
+    phone: string;
+    email: string;
+    website: string;
+    address: string;
+    ytunnus: string;
   };
 };
 
@@ -47,13 +44,35 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#e0e0e0",
   },
+  headerLeft: {
+    flexDirection: "column",
+    maxWidth: "50%",
+  },
   logo: {
-    width: 80,
-    height: 40,
+    width: 120,
+    height: 60,
     objectFit: "contain" as const,
+    marginBottom: 12,
+  },
+  contactInfo: {
+    marginTop: 4,
+  },
+  contactRow: {
+    flexDirection: "row",
+    marginBottom: 3,
+  },
+  contactLabel: {
+    fontSize: 8,
+    color: "#666666",
+    width: 55,
+  },
+  contactValue: {
+    fontSize: 8,
+    color: "#333333",
   },
   headerRight: {
     textAlign: "right",
+    maxWidth: "45%",
   },
   invoiceTitle: {
     fontSize: 18,
@@ -64,6 +83,25 @@ const styles = StyleSheet.create({
   date: {
     fontSize: 10,
     color: "#666666",
+    marginBottom: 12,
+  },
+  businessInfo: {
+    marginTop: 8,
+  },
+  businessRow: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    marginBottom: 3,
+  },
+  businessLabel: {
+    fontSize: 8,
+    color: "#666666",
+    marginRight: 8,
+  },
+  businessValue: {
+    fontSize: 8,
+    color: "#333333",
+    textAlign: "right",
   },
   infoBox: {
     backgroundColor: "#fafafa",
@@ -186,7 +224,7 @@ const styles = StyleSheet.create({
 
 /**
  * PDF Receipt document component.
- * Matches the professional design of the Receipt email template.
+ * Accepts a translation function for localized content.
  */
 const ReceiptPDF = ({
   customerName,
@@ -194,7 +232,8 @@ const ReceiptPDF = ({
   items,
   date,
   logoUrl,
-  translations: t,
+  t,
+  businessInfo,
 }: ReceiptPDFProps) => {
   const validItems = items.filter((item) => item.service && item.price);
   const total = validItems.reduce((sum, item) => sum + (parseFloat(item.price) || 0), 0);
@@ -207,10 +246,39 @@ const ReceiptPDF = ({
       <Page size="A4" style={styles.page}>
         {/* Header */}
         <View style={styles.header}>
-          <Image src={logoUrl} style={styles.logo} />
+          {/* Left side: Logo + Contact info */}
+          <View style={styles.headerLeft}>
+            <Image src={logoUrl} style={styles.logo} />
+            <View style={styles.contactInfo}>
+              <View style={styles.contactRow}>
+                <Text style={styles.contactLabel}>{t("phoneLabel")}</Text>
+                <Text style={styles.contactValue}>{businessInfo.phone}</Text>
+              </View>
+              <View style={styles.contactRow}>
+                <Text style={styles.contactLabel}>{t("emailLabel")}</Text>
+                <Text style={styles.contactValue}>{businessInfo.email}</Text>
+              </View>
+              <View style={styles.contactRow}>
+                <Text style={styles.contactLabel}>{t("websiteLabel")}</Text>
+                <Text style={styles.contactValue}>{businessInfo.website}</Text>
+              </View>
+            </View>
+          </View>
+
+          {/* Right side: Invoice title + Business info */}
           <View style={styles.headerRight}>
-            <Text style={styles.invoiceTitle}>{t.invoice}</Text>
+            <Text style={styles.invoiceTitle}>{t("invoiceTitle")}</Text>
             <Text style={styles.date}>{date}</Text>
+            <View style={styles.businessInfo}>
+              <View style={styles.businessRow}>
+                <Text style={styles.businessLabel}>{t("addressLabel")}</Text>
+                <Text style={styles.businessValue}>{businessInfo.address}</Text>
+              </View>
+              <View style={styles.businessRow}>
+                <Text style={styles.businessLabel}>{t("businessIdLabel")}</Text>
+                <Text style={styles.businessValue}>{businessInfo.ytunnus}</Text>
+              </View>
+            </View>
           </View>
         </View>
 
@@ -218,12 +286,12 @@ const ReceiptPDF = ({
         <View style={styles.infoBox}>
           {customerName && (
             <View style={styles.infoRow}>
-              <Text style={styles.infoLabel}>{t.customer}</Text>
+              <Text style={styles.infoLabel}>{t("customerName")}</Text>
               <Text style={styles.infoValue}>{customerName}</Text>
             </View>
           )}
           <View style={[styles.infoRow, { marginBottom: 0 }]}>
-            <Text style={styles.infoLabel}>{t.plate}</Text>
+            <Text style={styles.infoLabel}>{t("plate")}</Text>
             <Text style={styles.infoValue}>{plate}</Text>
           </View>
         </View>
@@ -231,10 +299,10 @@ const ReceiptPDF = ({
         {/* Services Table */}
         <View style={styles.tableHeader}>
           <View style={styles.serviceColumn}>
-            <Text style={styles.tableHeaderText}>{t.service}</Text>
+            <Text style={styles.tableHeaderText}>{t("service")}</Text>
           </View>
           <View style={styles.priceColumn}>
-            <Text style={styles.tableHeaderText}>{t.price}</Text>
+            <Text style={styles.tableHeaderText}>{t("price")}</Text>
           </View>
         </View>
 
@@ -252,16 +320,16 @@ const ReceiptPDF = ({
         {/* Totals */}
         <View style={styles.totalsSection}>
           <View style={styles.totalsRow}>
-            <Text style={styles.totalsLabel}>{t.subtotal}</Text>
+            <Text style={styles.totalsLabel}>{t("subtotal")}</Text>
             <Text style={styles.totalsValue}>€ {subtotal.toFixed(2)}</Text>
           </View>
           <View style={styles.totalsRow}>
-            <Text style={styles.totalsLabel}>{t.vat} (25.5%)</Text>
+            <Text style={styles.totalsLabel}>{t("vat")} (25.5%)</Text>
             <Text style={styles.totalsValue}>€ {vatAmount.toFixed(2)}</Text>
           </View>
           <View style={styles.totalDivider}>
             <View style={styles.totalRow}>
-              <Text style={styles.totalLabel}>{t.total}</Text>
+              <Text style={styles.totalLabel}>{t("total")}</Text>
               <Text style={styles.totalValue}>€ {total.toFixed(2)}</Text>
             </View>
           </View>
@@ -269,8 +337,8 @@ const ReceiptPDF = ({
 
         {/* Footer */}
         <View style={styles.footer}>
-          <Text style={styles.thankYou}>{t.thankYou}</Text>
-          <Text style={styles.footerText}>{t.footer}</Text>
+          <Text style={styles.thankYou}>{t("thankYou")}</Text>
+          <Text style={styles.footerText}>{t("footer")}</Text>
         </View>
 
         <Text style={styles.copyright}>

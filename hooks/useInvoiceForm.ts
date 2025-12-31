@@ -5,6 +5,8 @@ import { useForm, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { receiptSchema, ReceiptFormData, InvoiceItem } from "@/lib/schemas/receiptSchema";
 
+export type { InvoiceItem };
+
 /** VAT rate in Finland (25.5%) */
 const VAT_RATE = 0.255;
 
@@ -78,6 +80,7 @@ export function useInvoiceForm() {
       customerName: "",
       plate: "",
       items: [createEmptyItem()],
+      language: "fi",
     },
   });
 
@@ -120,6 +123,7 @@ export function useInvoiceForm() {
       customerName: "",
       plate: "",
       items: [createEmptyItem()],
+      language: "fi",
     });
   }, [reset]);
 

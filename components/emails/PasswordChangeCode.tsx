@@ -10,43 +10,19 @@ import {
   Hr,
   Preview,
 } from "@react-email/components";
+import { TranslationFunction } from "@/lib/utils";
 
-export type EmailTranslations = {
-  preview: string;
-  greeting: string;
-  description: string;
-  verificationCodeLabel: string;
-  expiresIn: string;
-  tenMinutes: string;
-  ignoreMessage: string;
-  copyright: string;
-};
-
-/** Default English translations */
-const defaultTranslations: EmailTranslations = {
-  preview: "Your password reset code:",
-  greeting: "Hello",
-  description:
-    "We received a request to reset your password. Use the code below to complete the process.",
-  verificationCodeLabel: "Your verification code",
-  expiresIn: "This code expires in",
-  tenMinutes: "10 minutes",
-  ignoreMessage:
-    "If you didn't request this password reset, you can safely ignore this email. Your account remains secure.",
-  copyright: "All rights reserved.",
-};
-
-const PasswordChangeCode = ({
-  name,
-  code,
-  translations = defaultTranslations,
-}: {
+interface PasswordChangeCodeProps {
   name: string;
   code: string;
-  translations?: EmailTranslations;
-}) => {
-  const t = translations;
+  t: TranslationFunction;
+}
 
+/**
+ * Password reset code email template.
+ * Accepts a translation function for localized content.
+ */
+const PasswordChangeCode = ({ name, code, t }: PasswordChangeCodeProps) => {
   return (
     <Html>
       <Head>
@@ -54,7 +30,7 @@ const PasswordChangeCode = ({
         <meta name="supported-color-schemes" content="light only" />
       </Head>
       <Preview>
-        {t.preview} {code}
+        {t("preview")} {code}
       </Preview>
       <Body
         style={{
@@ -82,7 +58,7 @@ const PasswordChangeCode = ({
             }}
           >
             <Img
-              src="https://raw.githubusercontent.com/BlendiGR/autospa-opus/refs/heads/main/public/logo-opus.png?token=GHSAT0AAAAAADPB2SKD4SQRNUY6C5SHUBRA2KQCFJQ"
+              src="https://raw.githubusercontent.com/BlendiGR/autospa-opus/refs/heads/main/public/logo-opus.png"
               alt="AutoSpa Opus"
               width="100"
               style={{ margin: "0 auto" }}
@@ -99,7 +75,7 @@ const PasswordChangeCode = ({
                 margin: "0 0 16px 0",
               }}
             >
-              {t.greeting}, {name}
+              {t("greeting")}, {name}
             </Heading>
 
             <Text
@@ -110,7 +86,7 @@ const PasswordChangeCode = ({
                 margin: "0 0 24px 0",
               }}
             >
-              {t.description}
+              {t("description")}
             </Text>
 
             {/* Code Box */}
@@ -133,7 +109,7 @@ const PasswordChangeCode = ({
                   margin: "0 0 8px 0",
                 }}
               >
-                {t.verificationCodeLabel}
+                {t("verificationCodeLabel")}
               </Text>
               <Text
                 style={{
@@ -158,7 +134,7 @@ const PasswordChangeCode = ({
                 textAlign: "center",
               }}
             >
-              {t.expiresIn} <strong>{t.tenMinutes}</strong>.
+              {t("expiresIn")} <strong>{t("tenMinutes")}</strong>.
             </Text>
 
             <Hr
@@ -177,7 +153,7 @@ const PasswordChangeCode = ({
                 margin: 0,
               }}
             >
-              {t.ignoreMessage}
+              {t("ignoreMessage")}
             </Text>
           </Section>
 
@@ -197,7 +173,7 @@ const PasswordChangeCode = ({
                 textAlign: "center",
               }}
             >
-              © {new Date().getFullYear()} AutoSpa Opus. {t.copyright}
+              © {new Date().getFullYear()} AutoSpa Opus. {t("copyright")}
             </Text>
           </Section>
         </Container>
