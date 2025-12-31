@@ -100,7 +100,7 @@ export default function AddTyreModal({ isOpen, onClose, onSuccess }: AddTyreModa
               id="plate"
               placeholder="ABC-123"
               {...register("plate")}
-              className={errors.plate ? "border-red-500" : ""}
+              error={!!errors.plate}
             />
             {errors.plate && <span className="text-xs text-red-500">{errors.plate.message}</span>}
           </div>
@@ -111,7 +111,7 @@ export default function AddTyreModal({ isOpen, onClose, onSuccess }: AddTyreModa
               id="number"
               placeholder="+358 40 123 4567"
               {...register("number")}
-              className={errors.number ? "border-red-500" : ""}
+              error={!!errors.number}
             />
             {errors.number && <span className="text-xs text-red-500">{errors.number.message}</span>}
           </div>
@@ -123,7 +123,7 @@ export default function AddTyreModal({ isOpen, onClose, onSuccess }: AddTyreModa
               list="locations"
               placeholder={t("locationPlaceholder")}
               {...register("location")}
-              className={errors.location ? "border-red-500" : ""}
+              error={!!errors.location}
             />
             <datalist id="locations">
               {locations.map((loc) => (

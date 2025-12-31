@@ -33,7 +33,7 @@ export default function InvoiceItem({
         <Input
           placeholder={t("servicePlaceholder")}
           {...register(`items.${index}.service`)}
-          className={serviceError ? "border-red-500" : ""}
+          error={!!serviceError}
         />
         {serviceError && <span className="text-xs text-red-500">{serviceError}</span>}
       </div>
@@ -45,7 +45,7 @@ export default function InvoiceItem({
           inputMode="decimal"
           placeholder={t("pricePlaceholder")}
           {...register(`items.${index}.price`)}
-          className={priceError ? "border-red-500" : ""}
+          error={!!priceError}
         />
         {priceError && <span className="text-xs text-red-500">{priceError}</span>}
       </div>

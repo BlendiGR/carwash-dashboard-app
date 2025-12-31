@@ -7,8 +7,7 @@ import { useRouter } from "next/navigation";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import ForgotPasswordForm from "@/components/login/ForgotPasswordForm";
 import ForgotPasswordCodeConfirmForm from "@/components/login/ForgotPasswordCodeConfirmForm";
-import { forgotPassword } from "@/app/actions/forgotpassword";
-import { verifyResetCode } from "@/app/actions/verifyResetCode";
+import { forgotPassword, verifyResetCode } from "@/app/actions/password";
 import { useLoading } from "@/hooks";
 
 export default function ForgotPasswordClient() {

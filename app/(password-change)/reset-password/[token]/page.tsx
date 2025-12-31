@@ -3,7 +3,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import ResetPasswordClient from "@/components/login/ResetPasswordClient";
-import { validateResetToken } from "@/app/actions/resetPassword";
+import { validateResetToken } from "@/app/actions/password";
 
 type Props = {
   params: Promise<{ token: string }>;

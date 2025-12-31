@@ -42,7 +42,7 @@ export default function InvoicePreview({
     <div className="h-fit sticky top-8">
       <div className="text-sm font-medium text-gray-500 mb-3">{t("preview")}</div>
 
-      <div className="bg-gray-100 p-4 sm:p-6 font-sans">
+      <div className="p-4 sm:p-6 font-sans">
         <div className="max-w-[560px] mx-auto bg-white border border-gray-200">
           {/* Header */}
           <div className="p-6 sm:px-8 border-b border-gray-200">

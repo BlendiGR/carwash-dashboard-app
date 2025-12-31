@@ -110,8 +110,8 @@
     "copyright": "All rights reserved."
   },
   "SendReceipt": {
-    "title": "Send Invoice",
-    "subtitle": "Create and send an invoice receipt to your customer",
+    "title": "Send Receipt",
+    "subtitle": "Create and send a receipt to your customer",
     "email": "Email Address",
     "emailPlaceholder": "customer@example.com",
     "customerName": "Customer Name",
@@ -119,7 +119,7 @@
     "plate": "Plate Number",
     "language": "Receipt Language",
     "optional": "optional",
-    "invoiceItems": "Invoice Items",
+    "invoiceItems": "Receipt Items",
     "addItem": "Add Item",
     "service": "Service",
     "servicePlaceholder": "e.g., Carwash",
@@ -128,7 +128,7 @@
     "price": "Price",
     "remove": "Remove",
     "preview": "Email Preview",
-    "invoiceTitle": "Invoice Receipt",
+    "invoiceTitle": "Receipt",
     "subtotal": "Subtotal",
     "vat": "VAT",
     "total": "Total",
@@ -138,16 +138,20 @@
     "emailGreeting": "Hello",
     "emailReceiptMessage": "Thank you for visiting AutoSpa Opus! Attached is the receipt for your vehicle",
     "emailKeepReceipt": "Please keep this receipt for your records.",
-    "submit": "Send Invoice",
+    "submit": "Send Receipt",
     "sending": "Sending...",
-    "success": "Invoice Sent!",
-    "successDescription": "The invoice has been sent to the customer's email.",
+    "success": "Receipt Sent!",
+    "successDescription": "The receipt has been sent to the customer's email.",
     "genericError": "Failed to send receipt. Please try again.",
     "phoneLabel": "Phone:",
     "emailLabel": "Email:",
     "websiteLabel": "Website:",
     "addressLabel": "Address:",
     "businessIdLabel": "Business ID:"
+  },
+  "send-receipt": {
+    "title": "Send Receipt",
+    "description": "Create and send receipts to your customers."
   }
 }
 

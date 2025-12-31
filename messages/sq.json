@@ -110,16 +110,16 @@
     "copyright": "Të gjitha të drejtat e rezervuara."
   },
   "SendReceipt": {
-    "title": "Dërgo Faturë",
-    "subtitle": "Krijo dhe dërgo një faturë klientit tuaj",
+    "title": "Dërgo Kupon",
+    "subtitle": "Krijo dhe dërgo një kupon klientit tuaj",
     "email": "Adresa e Email-it",
     "emailPlaceholder": "klient@shembull.com",
     "customerName": "Emri i Klientit",
     "customerNamePlaceholder": "Sheno emrin e klientit",
     "plate": "Numri i Targës",
-    "language": "Gjuha e Faturës",
+    "language": "Gjuha e Kuponit",
     "optional": "opsional",
-    "invoiceItems": "Artikujt e Faturës",
+    "invoiceItems": "Artikujt e Kuponit",
     "addItem": "Shto Artikull",
     "service": "Shërbimi",
     "servicePlaceholder": "p.sh., Larje Makine",
@@ -128,7 +128,7 @@
     "price": "Çmimi",
     "remove": "Fshi",
     "preview": "Parashikimi i Email-it",
-    "invoiceTitle": "Fatura",
+    "invoiceTitle": "Kuponi",
     "subtotal": "Nëntotali",
     "vat": "TVSH",
     "total": "Totali",
@@ -136,12 +136,21 @@
     "thankYou": "Faleminderit që zgjodhët AutoSpa Opus!",
     "footer": "Presim me padurim t'ju shërbejmë përsëri.",
     "emailGreeting": "Përshëndetje",
-    "emailReceiptMessage": "Faleminderit për vizitën tuaj në AutoSpa Opus! Bashkëlidhur është fatura për automjetin tuaj",
-    "emailKeepReceipt": "Ju lutem ruajeni këtë faturë për regjistrat tuaja.",
-    "submit": "Dërgo Faturën",
+    "emailReceiptMessage": "Faleminderit për vizitën tuaj në AutoSpa Opus! Bashkëlidhur është kuponi për automjetin tuaj",
+    "emailKeepReceipt": "Ju lutem ruajeni këtë kupon për regjistrat tuaja.",
+    "submit": "Dërgo Kuponin",
     "sending": "Duke dërguar...",
-    "success": "Fatura u Dërgua!",
-    "successDescription": "Fatura është dërguar në email-in e klientit.",
-    "genericError": "Diçka shkoi keq. Ju lutem provoni përsëri."
+    "success": "Kuponi u Dërgua!",
+    "successDescription": "Kuponi është dërguar në email-in e klientit.",
+    "genericError": "Diçka shkoi keq. Ju lutem provoni përsëri.",
+    "phoneLabel": "Tel:",
+    "emailLabel": "Email:",
+    "websiteLabel": "Uebfaqja:",
+    "addressLabel": "Adresa:",
+    "businessIdLabel": "Nr. Biznesit:"
+  },
+  "send-receipt": {
+    "title": "Dërgo Kupon",
+    "description": "Krijo dhe dërgo kupona klientëve tuaj."
   }
 }

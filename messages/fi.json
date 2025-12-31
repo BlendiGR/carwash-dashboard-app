@@ -110,8 +110,8 @@
     "copyright": "Kaikki oikeudet pidätetään."
   },
   "SendReceipt": {
-    "title": "Lähetä Lasku",
-    "subtitle": "Luo ja lähetä laskukuitti asiakkaallesi",
+    "title": "Lähetä Kuitti",
+    "subtitle": "Luo ja lähetä kuitti asiakkaallesi",
     "email": "Sähköpostiosoite",
     "emailPlaceholder": "asiakas@esimerkki.fi",
     "customerName": "Asiakkaan Nimi",
@@ -119,7 +119,7 @@
     "plate": "Rekisterinumero",
     "language": "Kuitin kieli",
     "optional": "valinnainen",
-    "invoiceItems": "Laskurivit",
+    "invoiceItems": "Kuittirivit",
     "addItem": "Lisää Rivi",
     "service": "Palvelu",
     "servicePlaceholder": "esim., Autopesu",
@@ -128,7 +128,7 @@
     "price": "Hinta",
     "remove": "Poista",
     "preview": "Sähköpostin Esikatselu",
-    "invoiceTitle": "Laskukuitti",
+    "invoiceTitle": "Kuitti",
     "subtotal": "Välisumma",
     "vat": "ALV",
     "total": "Yhteensä",
@@ -138,16 +138,20 @@
     "emailGreeting": "Hei",
     "emailReceiptMessage": "Kiitos käynnistäsi AutoSpa Opuksessa! Liitteenä on kuitti ajoneuvollesi",
     "emailKeepReceipt": "Säilytäthän kuitin tarvittaessa kirjanpitoa varten.",
-    "submit": "Lähetä Lasku",
+    "submit": "Lähetä Kuitti",
     "sending": "Lähetetään...",
-    "success": "Lasku Lähetetty!",
-    "successDescription": "Lasku on lähetetty asiakkaan sähköpostiin.",
+    "success": "Kuitti Lähetetty!",
+    "successDescription": "Kuitti on lähetetty asiakkaan sähköpostiin.",
     "genericError": "Jotain meni pieleen. Yritä uudelleen.",
     "phoneLabel": "Puh:",
     "emailLabel": "Sähköposti:",
     "websiteLabel": "Nettisivut:",
     "addressLabel": "Osoite:",
     "businessIdLabel": "Y-tunnus:"
+  },
+  "send-receipt": {
+    "title": "Lähetä Kuitti",
+    "description": "Luo ja lähetä kuitteja asiakkaillesi."
   }
 }
 

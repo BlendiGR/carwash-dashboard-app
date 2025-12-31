@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import ResetPasswordForm from "./ResetPasswordForm";
-import { resetPassword } from "@/app/actions/resetPassword";
+import { resetPassword } from "@/app/actions/password";
 
 interface ResetPasswordClientProps {
   resetToken: string;
