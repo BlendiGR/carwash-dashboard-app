@@ -342,7 +342,7 @@ const ReceiptPDF = ({
         </View>
 
         <Text style={styles.copyright}>
-          © {new Date().getFullYear()} AutoSpa Opus. All rights reserved.
+          © {new Date().getFullYear()} AutoSpa Opus.
         </Text>
       </Page>
     </Document>

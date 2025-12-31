@@ -34,8 +34,6 @@ const Receipt = ({ customerName, plate, t }: ReceiptEmailProps) => {
             {t("emailReceiptMessage")} <strong>{plate}</strong>.
           </Text>
           <br />
-          <Text style={footerStyle}>{t("thankYou")}</Text>
-          <Text style={footerStyle}>{t("footer")}</Text>
         </Container>
       </Body>
     </Html>
