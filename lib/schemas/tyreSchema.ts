@@ -1,10 +1,8 @@
 import { z } from "zod";
+import { PHONE_REGEX } from "../constants";
 
 /** Finnish plate format: ABC-123, AB-1, ABC-1, etc. */
 const FINNISH_PLATE_REGEX = /^[A-ZÄÖÅ]{2,3}-\d{1,3}$/i;
-
-/** Phone number: digits, spaces, dashes, plus allowed */
-const PHONE_REGEX = /^[\d\s\-+()]+$/;
 
 /** Validation schema for tyre form data */
 export const tyreSchema = z.object({

@@ -11,22 +11,14 @@ export function Spinner({
 }: SpinnerProps) {
   return (
     <div
+      className="animate-spin"
       style={{
         width: size,
         height: size,
         border: `${Math.max(2, size / 8)}px solid ${ringColor}`,
         borderTopColor: spinColor,
         borderRadius: "50%",
-        animation: "spin 0.8s linear infinite",
       }}
-    >
-      <style jsx>{`
-        @keyframes spin {
-          to {
-            transform: rotate(360deg);
-          }
-        }
-      `}</style>
-    </div>
+    />
   );
 }

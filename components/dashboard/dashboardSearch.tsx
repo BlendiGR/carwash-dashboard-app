@@ -7,16 +7,10 @@ import AddTyreModal from "./addTyreModal";
 import { Package, Plus } from "lucide-react";
 import { Button } from "../ui/button";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
 
 export default function DashboardSearch() {
   const t = useTranslations("Dashboard");
-  const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleSuccess = () => {
-    router.refresh();
-  };
 
   return (
     <>
@@ -44,11 +38,7 @@ export default function DashboardSearch() {
         </div>
       </div>
 
-      <AddTyreModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onSuccess={handleSuccess}
-      />
+      <AddTyreModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }

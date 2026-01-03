@@ -15,33 +15,30 @@ export default function ReceiptBuilder() {
   const [success, setSuccess] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
 
-  const {
-    form,
-    register,
-    fields,
-    watchedValues,
-    addItem,
-    removeItem,
-    resetForm,
-    canRemoveItem,
-  } = useInvoiceForm();
+  const { form, register, fields, watchedValues, addItem, removeItem, resetForm, canRemoveItem } =
+    useInvoiceForm();
 
-  const { handleSubmit, formState: { errors } } = form;
+  const {
+    handleSubmit,
+    formState: { errors },
+  } = form;
 
   const onSubmit = handleSubmit(async (data) => {
     setServerError(null);
 
     await withLoading(async () => {
-      try {
-        await sendReceipt(data);
-        setSuccess(true);
-        setTimeout(() => {
-          setSuccess(false);
-          resetForm();
-        }, 3000);
-      } catch {
-        setServerError(t("genericError"));
+      const result = await sendReceipt(data);
+
+      if (!result.success) {
+        setServerError(result.error || t("genericError"));
+        return;
       }
+
+      setSuccess(true);
+      setTimeout(() => {
+        setSuccess(false);
+        resetForm();
+      }, 3000);
     });
   });
 
@@ -50,7 +47,7 @@ export default function ReceiptBuilder() {
   }
 
   return (
-    <div className="w-full max-w-[1536px] mx-auto">
+    <div className="w-full max-w-384 mx-auto">
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 m-4">
         <ReceiptForm
           register={register}

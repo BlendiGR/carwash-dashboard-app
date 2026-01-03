@@ -1,4 +1,9 @@
 {
+  "Error": {
+    "title": "Jokin meni pieleen",
+    "description": "Odottamaton virhe tapahtui. Yritä uudelleen.",
+    "tryAgain": "Yritä uudelleen"
+  },
   "Navigation": {
     "dashboard": "Hallintapaneeli",
     "sendReceipt": "Lähetä Kuitti",
@@ -44,7 +49,8 @@
     "inStorage": "Varastossa",
     "returned": "Palautettu",
     "totalTyres": "Renkaat Varastossa",
-    "totalCustomers": "Asiakkaita Yhteensä"
+    "totalCustomers": "Asiakkaita Yhteensä",
+    "fetchError": "Renkaiden lataus epäonnistui"
   },
   "TyreCard": {
     "customer": "Asiakas",
@@ -159,7 +165,22 @@
   "Customers": {
     "title": "Asiakkaat",
     "subtitle": "Katso asiakkaita ja aiempia tapahtumia",
-    "addCustomer": "Lisää Asiakas"
+    "addCustomer": "Lisää Asiakas",
+    "addCustomerTitle": "Lisää Uusi Asiakas",
+    "cancel": "Peruuta",
+    "customerName": "Asiakkaan Nimi",
+    "customerEmail": "Sähköposti",
+    "customerPhone": "Puhelinnumero",
+    "customerPlate": "Rekisterinumero",
+    "customerCompany": "Yritys",
+    "customerNameMin": "Nimen tulee olla vähintään 3 merkkiä",
+    "customerEmailInvalid": "Virheellinen sähköpostiosoite",
+    "customerPlateInvalid": "Rekisterinumeron tulee olla vähintään 3 merkkiä",
+    "customerPhoneInvalid": "Virheellinen puhelinnumero",
+    "customerCompanyInvalid": "Yrityksen nimen tulee olla vähintään 3 merkkiä",
+    "noCustomers": "Asiakkaita ei löytynyt",
+    "fetchError": "Asiakkaiden haku epäonnistui",
+    "actions": "Toiminnot",
+    "view": "Näytä"
   }
 }
-

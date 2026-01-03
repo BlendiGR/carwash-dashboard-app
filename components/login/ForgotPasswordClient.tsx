@@ -27,7 +27,7 @@ export default function ForgotPasswordClient() {
       setIsEmailSent(true);
       stopLoading();
     } else {
-      setError(result.message);
+      setError(result.error || "Something went wrong");
       stopLoading();
     }
   };
@@ -41,7 +41,7 @@ export default function ForgotPasswordClient() {
       // Redirect to reset password page with the UUID token
       router.push(`/reset-password/${result.resetToken}`);
     } else {
-      setError(result.message);
+      setError(result.error || "Something went wrong");
       stopLoading();
     }
   };

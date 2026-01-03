@@ -10,7 +10,6 @@ import Modal from "../ui/modal";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Button } from "../ui/button";
-import { Spinner } from "../ui/Spinner";
 
 import { useCreateTyre } from "@/hooks";
 import { tyreSchema, TyreFormData } from "@/lib/schemas/tyreSchema";
@@ -96,12 +95,7 @@ export default function AddTyreModal({ isOpen, onClose, onSuccess }: AddTyreModa
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
           <div className="flex flex-col gap-1.5">
             <Label htmlFor="plate">{t("plate")}</Label>
-            <Input
-              id="plate"
-              placeholder="ABC-123"
-              {...register("plate")}
-              error={!!errors.plate}
-            />
+            <Input id="plate" placeholder="ABC-123" {...register("plate")} error={!!errors.plate} />
             {errors.plate && <span className="text-xs text-red-500">{errors.plate.message}</span>}
           </div>
 
@@ -169,8 +163,8 @@ export default function AddTyreModal({ isOpen, onClose, onSuccess }: AddTyreModa
             >
               {t("cancel")}
             </Button>
-            <Button type="submit" className="rounded-xl min-w-[100px]" disabled={loading}>
-              {loading ? <Spinner size={20} spinColor="#fff" /> : t("submit")}
+            <Button type="submit" className="rounded-xl min-w-[100px]" loading={loading}>
+              {t("submit")}
             </Button>
           </div>
         </form>

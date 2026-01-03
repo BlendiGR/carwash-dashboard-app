@@ -11,7 +11,6 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Mail, Key } from "lucide-react";
 import { useLoading } from "@/hooks";
-import { Spinner } from "../ui/Spinner";
 import { ForgotPassword } from "./forgotPassword";
 
 export function LoginForm() {
@@ -70,17 +69,11 @@ export function LoginForm() {
       <Button
         type="submit"
         size="lg"
-        disabled={loading}
+        loading={loading}
+        loadingText={t("loading")}
         className="flex items-center justify-center gap-2"
       >
-        {loading ? (
-          <>
-            <Spinner size={18} spinColor="white" ringColor="rgba(255,255,255,0.3)" />
-            {t("loading")}
-          </>
-        ) : (
-          t("submit")
-        )}
+        {t("submit")}
       </Button>
     </form>
   );

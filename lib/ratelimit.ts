@@ -60,7 +60,7 @@ export async function checkRateLimit(
   const ip = identifier ?? (await headers()).get("x-forwarded-for") ?? "127.0.0.1";
 
   const limiter = type === "auth" ? authRatelimit : ratelimit;
-  const { success, remaining } = await limiter.limit(ip);
+  const { success } = await limiter.limit(ip);
 
   if (!success) {
     const message =

@@ -44,7 +44,7 @@ export default function ForgotPasswordForm({
           {...register("email")}
         />
       </FormField>
-      <Button type="submit" size="lg" disabled={loading}>
+      <Button type="submit" size="lg" loading={loading}>
         {t("submit")}
       </Button>
       <Button

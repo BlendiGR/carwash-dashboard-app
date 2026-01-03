@@ -1,13 +1,12 @@
 "use client";
 
-import { UseFormReturn, UseFieldArrayReturn, FieldErrors } from "react-hook-form";
+import { UseFormReturn, FieldErrors, FieldArrayWithId } from "react-hook-form";
 import { Mail, User, Car, Plus, Globe } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Spinner } from "@/components/ui/Spinner";
 import { Select } from "@/components/ui/select";
 import InvoiceItem from "./invoiceItem";
 import { ReceiptFormData, RECEIPT_LANGUAGES, ReceiptLanguage } from "@/lib/schemas/receiptSchema";
@@ -15,7 +14,7 @@ import { ReceiptFormData, RECEIPT_LANGUAGES, ReceiptLanguage } from "@/lib/schem
 interface ReceiptFormProps {
   register: UseFormReturn<ReceiptFormData>["register"];
   errors: FieldErrors<ReceiptFormData>;
-  fields: any[];
+  fields: FieldArrayWithId<ReceiptFormData, "items", "id">[];
   addItem: () => void;
   removeItem: (index: number) => void;
   canRemoveItem: boolean;
@@ -68,9 +67,7 @@ export default function ReceiptForm({
               {...register("email")}
               error={!!errors.email}
             />
-            {errors.email && (
-              <span className="text-xs text-red-500">{errors.email.message}</span>
-            )}
+            {errors.email && <span className="text-xs text-red-500">{errors.email.message}</span>}
           </div>
 
           {/* Language Selector */}
@@ -95,7 +92,8 @@ export default function ReceiptForm({
           {/* Customer Name */}
           <div className="flex flex-col gap-1.5">
             <Label htmlFor="customerName">
-              {t("customerName")} <span className="text-gray-400 font-normal">({t("optional")})</span>
+              {t("customerName")}{" "}
+              <span className="text-gray-400 font-normal">({t("optional")})</span>
             </Label>
             <Input
               id="customerName"
@@ -119,9 +117,7 @@ export default function ReceiptForm({
               })}
               error={!!errors.plate}
             />
-            {errors.plate && (
-              <span className="text-xs text-red-500">{errors.plate.message}</span>
-            )}
+            {errors.plate && <span className="text-xs text-red-500">{errors.plate.message}</span>}
           </div>
         </div>
 
@@ -172,18 +168,14 @@ export default function ReceiptForm({
         )}
 
         <div className="mt-auto pt-6">
-          <Button type="submit" className="w-full h-11 text-base font-medium shadow-md hover:shadow-lg transition-all" disabled={loading}>
-            {loading ? (
-              <>
-                <Spinner size={20} spinColor="#fff" />
-                {t("sending")}
-              </>
-            ) : (
-              <>
-                <Mail className="w-5 h-5 mr-2" />
-                {t("submit")}
-              </>
-            )}
+          <Button
+            type="submit"
+            className="w-full h-11 text-base font-medium shadow-md hover:shadow-lg transition-all"
+            loading={loading}
+            loadingText={t("sending")}
+          >
+            <Mail className="w-5 h-5 mr-2" />
+            {t("submit")}
           </Button>
         </div>
       </form>

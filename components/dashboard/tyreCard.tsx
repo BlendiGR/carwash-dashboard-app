@@ -104,7 +104,9 @@ export default function TyreCard({ tyre }: TyreCardProps) {
         onClose={() => setShowConfirm(false)}
         onConfirm={handleToggle}
         title={isStored ? tConfirm("returnTitle") : tConfirm("storeTitle")}
-        message={isStored ? tConfirm("returnMessage", { plate }) : tConfirm("storeMessage", { plate })}
+        message={
+          isStored ? tConfirm("returnMessage", { plate }) : tConfirm("storeMessage", { plate })
+        }
         confirmLabel={isStored ? t("returnButton") : t("storeButton")}
         variant={isStored ? "destructive" : "default"}
       />

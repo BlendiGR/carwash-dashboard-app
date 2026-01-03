@@ -3,12 +3,6 @@ import { tyreCounts, customerCount } from "@/app/actions/tyrehotel";
 import DashboardCard from "./dashboardCard";
 import { getTranslations } from "next-intl/server";
 
-/**
- * Dashboard statistics section - Server Component
- *
- * Fetches and displays tyre counts, customer count, and location breakdown.
- * Uses Suspense for loading state (skeleton is handled by parent).
- */
 export default async function DashboardStats() {
   const t = await getTranslations("Dashboard");
 

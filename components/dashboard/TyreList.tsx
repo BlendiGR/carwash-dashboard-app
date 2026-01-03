@@ -9,21 +9,28 @@ interface TyreListProps {
   isStored?: boolean;
 }
 
-/**
- * TyreList - Server Component for fetching and displaying tyre records.
- *
- * Fetches tyres based on search/filter params and renders a grid of TyreCards.
- * Loading state is handled by parent Suspense boundary.
- */
 export default async function TyreList({ query, page = 1, isStored = true }: TyreListProps) {
   const t = await getTranslations("Dashboard");
-  const { tyres, pagination } = await fetchTyres(query, page, isStored);
 
-  if (tyres.length === 0) {
-    return (
-      <p className="text-gray-500 text-center py-8">{t("noTyresFound")}</p>
-    );
+  let data = null;
+  let error = false;
+
+  try {
+    data = await fetchTyres(query, page, isStored);
+  } catch (e) {
+    console.error("Failed to fetch tyres:", e);
+    error = true;
   }
+
+  if (error) {
+    return <p className="text-red-500 text-center py-8">{t("fetchError")}</p>;
+  }
+
+  if (!data || data.tyres.length === 0) {
+    return <p className="text-gray-500 text-center py-8">{t("noTyresFound")}</p>;
+  }
+
+  const { tyres, pagination } = data;
 
   return (
     <div>
@@ -34,10 +41,7 @@ export default async function TyreList({ query, page = 1, isStored = true }: Tyr
       </div>
 
       {pagination.totalPages > 1 && (
-        <Pagination
-          currentPage={pagination.currentPage}
-          totalPages={pagination.totalPages}
-        />
+        <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
       )}
     </div>
   );

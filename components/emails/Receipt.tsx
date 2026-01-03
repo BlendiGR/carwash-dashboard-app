@@ -1,11 +1,4 @@
-import {
-  Html,
-  Head,
-  Body,
-  Container,
-  Text,
-  Preview,
-} from "@react-email/components";
+import { Html, Head, Body, Container, Text, Preview } from "@react-email/components";
 import { TranslationFunction } from "@/lib/utils";
 
 interface ReceiptEmailProps {
@@ -41,7 +34,8 @@ const Receipt = ({ customerName, plate, t }: ReceiptEmailProps) => {
 };
 
 const mainStyle = {
-  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
+  fontFamily:
+    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
   margin: "0",
   padding: "0",
 };
@@ -56,13 +50,6 @@ const textStyle = {
   lineHeight: "26px",
   color: "#333",
   margin: "0 0 16px 0",
-};
-
-const footerStyle = {
-  fontSize: "14px",
-  lineHeight: "24px",
-  color: "#666",
-  margin: "0 0 4px 0",
 };
 
 export default Receipt;

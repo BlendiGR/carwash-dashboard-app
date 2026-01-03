@@ -1,4 +1,9 @@
 {
+  "Error": {
+    "title": "Dika shkoi keq",
+    "description": "Ndodhi një gabim i papritur. Ju lutemi provoni përsëri.",
+    "tryAgain": "Provo përsëri"
+  },
   "Navigation": {
     "dashboard": "Paneli",
     "sendReceipt": "Dërgo Faturë",
@@ -44,7 +49,8 @@
     "inStorage": "Në Depo",
     "returned": "Të Kthyera",
     "totalTyres": "Goma Totale në Depo",
-    "totalCustomers": "Klientë Totalë"
+    "totalCustomers": "Klientë Totalë",
+    "fetchError": "Dështoi ngarkimi i gomave"
   },
   "TyreCard": {
     "customer": "Klienti",
@@ -159,6 +165,22 @@
   "Customers": {
     "title": "Klientët",
     "subtitle": "Shiko klientët dhe transaksionet e kaluara",
-    "addCustomer": "Shto Klient"
+    "addCustomer": "Shto Klient",
+    "addCustomerTitle": "Shto Klient të Ri",
+    "cancel": "Anulo",
+    "customerName": "Emri i Klientit",
+    "customerEmail": "Email",
+    "customerPhone": "Numri i Telefonit",
+    "customerPlate": "Numri i Targës",
+    "customerCompany": "Kompania",
+    "customerNameMin": "Emri duhet të jetë së paku 3 karaktere",
+    "customerEmailInvalid": "Adresë emaili e pavlefshme",
+    "customerPlateInvalid": "Targa duhet të jetë së paku 3 karaktere",
+    "customerPhoneInvalid": "Numër telefoni i pavlefshëm",
+    "customerCompanyInvalid": "Emri i kompanisë duhet të jetë së paku 3 karaktere",
+    "noCustomers": "Nuk u gjetën klientë",
+    "fetchError": "Dështoi marrja e klientëve",
+    "actions": "Veprimet",
+    "view": "Shiko"
   }
 }

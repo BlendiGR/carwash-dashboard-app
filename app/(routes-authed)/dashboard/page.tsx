@@ -12,12 +12,6 @@ interface DashboardPageProps {
   }>;
 }
 
-/**
- * Dashboard Page - Server Component with Suspense streaming
- *
- * Uses React Suspense for progressive loading with skeleton fallbacks.
- * Search params are parsed server-side and passed to child components.
- */
 export default async function DashboardPage({ searchParams }: DashboardPageProps) {
   const params = await searchParams;
   const query = params.query;
@@ -25,7 +19,7 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
   const isStored = params.stored !== "false";
 
   return (
-    <main className="max-w-[1536px] mx-auto">
+    <main className="max-w-384 mx-auto">
       {/* Stats Section */}
       <div className="flex flex-col bg-gray-100 m-4 rounded-2xl p-4 sm:p-6 md:p-8 gap-4 shadow-md">
         <Suspense fallback={<StatsSkeleton />}>

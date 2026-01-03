@@ -248,6 +248,7 @@ const ReceiptPDF = ({
         <View style={styles.header}>
           {/* Left side: Logo + Contact info */}
           <View style={styles.headerLeft}>
+            {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <Image src={logoUrl} style={styles.logo} />
             <View style={styles.contactInfo}>
               <View style={styles.contactRow}>
@@ -341,9 +342,7 @@ const ReceiptPDF = ({
           <Text style={styles.footerText}>{t("footer")}</Text>
         </View>
 
-        <Text style={styles.copyright}>
-          © {new Date().getFullYear()} AutoSpa Opus.
-        </Text>
+        <Text style={styles.copyright}>© {new Date().getFullYear()} AutoSpa Opus.</Text>
       </Page>
     </Document>
   );

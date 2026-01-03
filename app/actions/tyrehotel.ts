@@ -143,13 +143,13 @@ interface CreateTyreInput {
  * @returns Object indicating success/failure and the created tyre or error message
  */
 export async function createTyre(data: CreateTyreInput) {
-  await requireAuth();
-
-  const validatedData = tyreSchema.safeParse(data);
-  if (!validatedData.success) {
-    return { success: false, error: "Invalid data" };
-  }
   try {
+    await requireAuth();
+
+    const validatedData = tyreSchema.safeParse(data);
+    if (!validatedData.success) {
+      return { success: false, error: "Invalid data" };
+    }
     const tyre = await prisma.tyre.create({
       data: {
         plate: validatedData.data.plate.toUpperCase(),
@@ -178,9 +178,9 @@ export async function createTyre(data: CreateTyreInput) {
  * @returns Object indicating success/failure and updated tyre data
  */
 export async function toggleTyreStatus(id: number) {
-  await requireAuth();
-
   try {
+    await requireAuth();
+
     const tyre = await prisma.tyre.findUnique({ where: { id } });
 
     if (!tyre) {

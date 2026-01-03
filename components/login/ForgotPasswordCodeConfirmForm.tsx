@@ -53,7 +53,7 @@ export default function ForgotPasswordCodeConfirmForm({
           {...register("code")}
         />
       </FormField>
-      <Button type="submit" size="lg" disabled={loading}>
+      <Button type="submit" size="lg" loading={loading}>
         {t("verifyCode")}
       </Button>
       <Button

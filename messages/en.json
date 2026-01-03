@@ -1,4 +1,9 @@
 {
+  "Error": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. Please try again.",
+    "tryAgain": "Try again"
+  },
   "Navigation": {
     "dashboard": "Dashboard",
     "sendReceipt": "Send Receipt",
@@ -44,7 +49,8 @@
     "inStorage": "In Storage",
     "returned": "Returned",
     "totalTyres": "Total Tyres in Storage",
-    "totalCustomers": "Total Customers"
+    "totalCustomers": "Total Customers",
+    "fetchError": "Failed to load tyres"
   },
   "TyreCard": {
     "customer": "Customer",
@@ -159,7 +165,22 @@
   "Customers": {
     "title": "Customers",
     "subtitle": "View customers and past transactions",
-    "addCustomer": "Add Customer"
+    "addCustomer": "Add Customer",
+    "addCustomerTitle": "Add New Customer",
+    "cancel": "Cancel",
+    "customerName": "Customer Name",
+    "customerEmail": "Email",
+    "customerPhone": "Phone Number",
+    "customerPlate": "Plate Number",
+    "customerCompany": "Company",
+    "customerNameMin": "Name must be at least 3 characters",
+    "customerEmailInvalid": "Invalid email address",
+    "customerPlateInvalid": "Plate must be at least 3 characters",
+    "customerPhoneInvalid": "Invalid phone number",
+    "customerCompanyInvalid": "Company name must be at least 3 characters",
+    "noCustomers": "No customers found",
+    "fetchError": "Failed to fetch customers",
+    "actions": "Actions",
+    "view": "View"
   }
 }
-

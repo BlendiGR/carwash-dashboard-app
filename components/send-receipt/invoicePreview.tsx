@@ -24,12 +24,7 @@ interface InvoicePreviewProps {
  * InvoicePreview - Live preview of the invoice email.
  * Matches the PDF layout with company info header.
  */
-export default function InvoicePreview({
-  customerName,
-  plate,
-  items,
-  t,
-}: InvoicePreviewProps) {
+export default function InvoicePreview({ customerName, plate, items, t }: InvoicePreviewProps) {
   const { validItems, subtotal, vatAmount, vatRate, total } = calculateInvoiceTotals(items);
 
   const currentDate = new Date().toLocaleDateString("fi-FI", {
@@ -106,17 +101,26 @@ export default function InvoicePreview({
             {/* Services Table */}
             <div className="mb-5">
               <div className="flex justify-between border-b-2 border-gray-800 pb-1.5 mb-2">
-                <span className="text-[11px] font-semibold uppercase text-gray-800">{t("service")}</span>
-                <span className="text-[11px] font-semibold uppercase text-gray-800">{t("price")}</span>
+                <span className="text-[11px] font-semibold uppercase text-gray-800">
+                  {t("service")}
+                </span>
+                <span className="text-[11px] font-semibold uppercase text-gray-800">
+                  {t("price")}
+                </span>
               </div>
 
               {validItems.length === 0 ? (
                 <div className="text-center py-6 text-gray-400 text-sm">{t("noItems")}</div>
               ) : (
                 validItems.map((item) => (
-                  <div key={item.id} className="flex justify-between border-b border-gray-200 py-2.5">
+                  <div
+                    key={item.id}
+                    className="flex justify-between border-b border-gray-200 py-2.5"
+                  >
                     <span className="text-sm text-gray-800">{item.service}</span>
-                    <span className="text-sm text-gray-800">€{parseFloat(item.price).toFixed(2)}</span>
+                    <span className="text-sm text-gray-800">
+                      €{parseFloat(item.price).toFixed(2)}
+                    </span>
                   </div>
                 ))
               )}
@@ -130,7 +134,9 @@ export default function InvoicePreview({
                   <span className="text-xs text-gray-500">€{subtotal.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-end gap-10 mb-2">
-                  <span className="text-xs text-gray-500">{t("vat")} ({(vatRate * 100).toFixed(1)}%)</span>
+                  <span className="text-xs text-gray-500">
+                    {t("vat")} ({(vatRate * 100).toFixed(1)}%)
+                  </span>
                   <span className="text-xs text-gray-500">€{vatAmount.toFixed(2)}</span>
                 </div>
                 <div className="border-t border-gray-800 pt-2 flex justify-end gap-10">
