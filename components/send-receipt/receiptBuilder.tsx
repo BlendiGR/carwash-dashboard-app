@@ -50,7 +50,7 @@ export default function ReceiptBuilder() {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full max-w-[1536px] mx-auto">
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 m-4">
         <ReceiptForm
           register={register}

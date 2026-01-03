@@ -25,16 +25,16 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
   const isStored = params.stored !== "false";
 
   return (
-    <main>
+    <main className="max-w-[1536px] mx-auto">
       {/* Stats Section */}
-      <div className="flex flex-col bg-gray-100 m-4 rounded-2xl p-4 max-w-[1450px] mx-auto sm:p-6 md:p-8 gap-4 shadow-md">
+      <div className="flex flex-col bg-gray-100 m-4 rounded-2xl p-4 sm:p-6 md:p-8 gap-4 shadow-md">
         <Suspense fallback={<StatsSkeleton />}>
           <DashboardStats />
         </Suspense>
       </div>
 
       {/* Tyre List Section */}
-      <div className="flex flex-col bg-gray-100 m-4 rounded-2xl p-4 max-w-[1450px] mx-auto sm:p-6 md:p-8 gap-4 shadow-md">
+      <div className="flex flex-col bg-gray-100 m-4 rounded-2xl p-4 sm:p-6 md:p-8 gap-4 shadow-md">
         <DashboardSearch />
         <Suspense key={`${query}-${page}-${isStored}`} fallback={<TyreListSkeleton />}>
           <TyreList query={query} page={page} isStored={isStored} />

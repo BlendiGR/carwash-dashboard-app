@@ -128,6 +128,9 @@
     "price": "Price",
     "remove": "Remove",
     "preview": "Email Preview",
+    "emailPreview": {
+      "subtitle": "This is how the email will look"
+    },
     "invoiceTitle": "Receipt",
     "subtotal": "Subtotal",
     "vat": "VAT",
@@ -143,15 +146,20 @@
     "success": "Receipt Sent!",
     "successDescription": "The receipt has been sent to the customer's email.",
     "genericError": "Failed to send receipt. Please try again.",
-    "phoneLabel": "Phone:",
-    "emailLabel": "Email:",
-    "websiteLabel": "Website:",
-    "addressLabel": "Address:",
-    "businessIdLabel": "Business ID:"
+    "invoicePhoneLabel": "Phone:",
+    "invoiceEmailLabel": "Email:",
+    "invoiceWebsiteLabel": "Website:",
+    "invoiceAddressLabel": "Address:",
+    "invoiceBusinessIdLabel": "Business ID:"
   },
   "send-receipt": {
     "title": "Send Receipt",
     "description": "Create and send receipts to your customers."
+  },
+  "Customers": {
+    "title": "Customers",
+    "subtitle": "View customers and past transactions",
+    "addCustomer": "Add Customer"
   }
 }
 

@@ -128,6 +128,9 @@
     "price": "Çmimi",
     "remove": "Fshi",
     "preview": "Parashikimi i Email-it",
+    "emailPreview": {
+      "subtitle": "Kështu do të duket email-i"
+    },
     "invoiceTitle": "Kuponi",
     "subtotal": "Nëntotali",
     "vat": "TVSH",
@@ -143,14 +146,19 @@
     "success": "Kuponi u Dërgua!",
     "successDescription": "Kuponi është dërguar në email-in e klientit.",
     "genericError": "Diçka shkoi keq. Ju lutem provoni përsëri.",
-    "phoneLabel": "Tel:",
-    "emailLabel": "Email:",
-    "websiteLabel": "Uebfaqja:",
-    "addressLabel": "Adresa:",
-    "businessIdLabel": "Nr. Biznesit:"
+    "invoicePhoneLabel": "Tel:",
+    "invoiceEmailLabel": "Email:",
+    "invoiceWebsiteLabel": "Uebfaqja:",
+    "invoiceAddressLabel": "Adresa:",
+    "invoiceBusinessIdLabel": "Nr. Biznesit:"
   },
   "send-receipt": {
     "title": "Dërgo Kupon",
     "description": "Krijo dhe dërgo kupona klientëve tuaj."
+  },
+  "Customers": {
+    "title": "Klientët",
+    "subtitle": "Shiko klientët dhe transaksionet e kaluara",
+    "addCustomer": "Shto Klient"
   }
 }

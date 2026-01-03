@@ -128,6 +128,9 @@
     "price": "Hinta",
     "remove": "Poista",
     "preview": "Sähköpostin Esikatselu",
+    "emailPreview": {
+      "subtitle": "Näin sähköposti tulee näyttämään"
+    },
     "invoiceTitle": "Kuitti",
     "subtotal": "Välisumma",
     "vat": "ALV",
@@ -143,15 +146,20 @@
     "success": "Kuitti Lähetetty!",
     "successDescription": "Kuitti on lähetetty asiakkaan sähköpostiin.",
     "genericError": "Jotain meni pieleen. Yritä uudelleen.",
-    "phoneLabel": "Puh:",
-    "emailLabel": "Sähköposti:",
-    "websiteLabel": "Nettisivut:",
-    "addressLabel": "Osoite:",
-    "businessIdLabel": "Y-tunnus:"
+    "invoicePhoneLabel": "Puh:",
+    "invoiceEmailLabel": "Sähköposti:",
+    "invoiceWebsiteLabel": "Nettisivut:",
+    "invoiceAddressLabel": "Osoite:",
+    "invoiceBusinessIdLabel": "Y-tunnus:"
   },
   "send-receipt": {
     "title": "Lähetä Kuitti",
     "description": "Luo ja lähetä kuitteja asiakkaillesi."
+  },
+  "Customers": {
+    "title": "Asiakkaat",
+    "subtitle": "Katso asiakkaita ja aiempia tapahtumia",
+    "addCustomer": "Lisää Asiakas"
   }
 }
 

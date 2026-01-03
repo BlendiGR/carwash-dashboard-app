@@ -15,7 +15,7 @@ import { ReceiptFormData, RECEIPT_LANGUAGES, ReceiptLanguage } from "@/lib/schem
 interface ReceiptFormProps {
   register: UseFormReturn<ReceiptFormData>["register"];
   errors: FieldErrors<ReceiptFormData>;
-  fields: any[]; // using any for field array for simplicity, or type correctly
+  fields: any[];
   addItem: () => void;
   removeItem: (index: number) => void;
   canRemoveItem: boolean;

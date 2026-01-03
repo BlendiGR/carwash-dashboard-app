@@ -26,7 +26,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
             "flex h-10 w-full rounded-xl border border-gray-200 bg-white py-2 text-sm shadow-sm transition-colors",
             "focus:outline-none focus:ring-1 focus:ring-gray-600 focus:border-gray-600",
             "disabled:cursor-not-allowed disabled:opacity-50",
-            "appearance-none", // Remove default arrow to use custom one
+            "appearance-none",
             "cursor-pointer",
             startIcon ? "pl-10 pr-10" : "px-3 pr-10",
             error && "border-red-500 focus:ring-red-500 focus:border-red-500",
