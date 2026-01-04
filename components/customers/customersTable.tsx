@@ -40,7 +40,7 @@ export default async function CustomersTable({ page = 1 }: CustomersTableProps) 
   const { customers, totalPages } = data;
 
   return (
-    <div className="bg-gray-100 rounded-2xl p-4 m-4 overflow-hidden">
+    <div className="bg-gray-100 rounded-2xl p-4 m-4 overflow-hidden shadow-md">
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>

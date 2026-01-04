@@ -14,7 +14,7 @@ export default function CustomerSearch() {
 
   return (
     <>
-      <div className="flex flex-col gap-4 justify-center bg-gray-100 rounded-2xl p-4 m-4">
+      <div className="flex flex-col gap-4 justify-center bg-gray-100 rounded-2xl p-4 m-4 shadow-md">
         <div className="flex flex-row sm:flex-row justify-between items-center gap-2">
           <div className="flex items-center gap-2">
             <div className="p-3 text-white bg-[#111827] rounded-2xl w-fit">
