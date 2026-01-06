@@ -9,6 +9,7 @@ import { customerSchema } from "@/lib/schemas/customerSchema";
 import { useTranslations } from "next-intl";
 import { Button } from "../ui/button";
 import { useLoading } from "@/hooks";
+import { createCustomer } from "@/app/actions/customers";
 
 export default function AddCustomerModal({
   isOpen,
@@ -28,9 +29,20 @@ export default function AddCustomerModal({
   const { loading, withLoading } = useLoading();
 
   const onSubmit = async (data: FieldValues) => {
-    await withLoading(async () => {
-      console.log(data);
-    });
+    try {
+      await withLoading(async () => {
+        await createCustomer({
+          name: data.customerName,
+          email: data.customerEmail,
+          phone: data.customerPhone,
+          company: data.customerCompany,
+          plate: data.customerPlate,
+        });
+        onClose();
+      });
+    } catch (error) {
+      console.error("Error creating customer:", error);
+    }
   };
 
   return (

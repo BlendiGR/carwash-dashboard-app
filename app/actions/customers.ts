@@ -55,6 +55,38 @@ export async function getCustomers({
   }
 }
 
+type CreatedCustomer = { id: number };
+
+/** Creates a new customer.
+ */
+export async function createCustomer(data: {
+  name: string;
+  phone: string;
+  email?: string;
+  company?: string;
+  plate?: string;
+}): Promise<ActionResult<CreatedCustomer>> {
+  try {
+    await requireAuth();
+
+    const newCustomer = await prisma.customer.create({
+      data: {
+        name: data.name,
+        phone: data.phone,
+        email: data.email || null,
+        company: data.company || null,
+        plate: data.plate ? data.plate.toUpperCase() : null,
+      },
+    });
+
+    revalidatePath("/customers");
+
+    return { success: true, data: { id: newCustomer.id } };
+  } catch {
+    return { success: false, error: "Failed to create customer" };
+  }
+}
+
 /**
  * Fetches a customer by ID with related tyres and invoices.
  */
