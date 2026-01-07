@@ -131,11 +131,7 @@ export default function CustomerSuggestion({
           </span>
         </div>
         <div className="flex gap-2">
-          <Button
-            type="button"
-            size="sm"
-            onClick={() => onLinkCustomer(customerMatch.id)}
-          >
+          <Button type="button" size="sm" onClick={() => onLinkCustomer(customerMatch.id)}>
             {t("linkToCustomer")}
           </Button>
           <Button type="button" size="sm" variant="outline" onClick={onSkip}>
@@ -152,12 +148,7 @@ export default function CustomerSuggestion({
       <div className="p-3 bg-amber-50 border border-amber-200 rounded-lg">
         <p className="text-sm text-amber-700 mb-2">{t("noCustomerFound")}</p>
         <div className="flex gap-2">
-          <Button
-            type="button"
-            size="sm"
-            variant="outline"
-            onClick={() => setShowCreateForm(true)}
-          >
+          <Button type="button" size="sm" variant="outline" onClick={() => setShowCreateForm(true)}>
             {t("createCustomer")}
           </Button>
           <Button type="button" size="sm" variant="ghost" onClick={onSkip}>

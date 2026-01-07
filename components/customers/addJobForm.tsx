@@ -18,9 +18,10 @@ import { useState } from "react";
 
 interface AddJobFormProps {
   customerId: number;
+  customerPhone: string;
 }
 
-export default function AddJobForm({ customerId }: AddJobFormProps) {
+export default function AddJobForm({ customerId, customerPhone }: AddJobFormProps) {
   const t = useTranslations("CustomerDetail");
   const [locations, setLocations] = useState<string[]>([]);
   const { loading, success, setSuccess, serverError, setServerError, withLoading, resetState } =
@@ -35,7 +36,7 @@ export default function AddJobForm({ customerId }: AddJobFormProps) {
     resolver: zodResolver(jobSchema),
     defaultValues: {
       plate: "",
-      number: "",
+      number: customerPhone,
       location: "",
     },
   });
@@ -92,37 +93,26 @@ export default function AddJobForm({ customerId }: AddJobFormProps) {
           {errors.plate && <span className="text-xs text-red-500">{errors.plate.message}</span>}
         </div>
 
-        {/* Phone */}
+        {/* Location */}
         <div className="flex flex-col gap-1.5">
-          <Label htmlFor="number">{t("jobPhone")}</Label>
+          <Label htmlFor="location">{t("jobLocation")}</Label>
           <Input
-            id="number"
-            placeholder="+358 40 123 4567"
-            startIcon={<Phone className="w-4 h-4" />}
-            {...register("number")}
-            error={!!errors.number}
+            id="location"
+            list="locations"
+            placeholder={t("jobLocationPlaceholder")}
+            startIcon={<MapPin className="w-4 h-4" />}
+            {...register("location")}
+            error={!!errors.location}
           />
-          {errors.number && <span className="text-xs text-red-500">{errors.number.message}</span>}
+          <datalist id="locations">
+            {locations.map((loc) => (
+              <option key={loc} value={loc} />
+            ))}
+          </datalist>
+          {errors.location && (
+            <span className="text-xs text-red-500">{errors.location.message}</span>
+          )}
         </div>
-      </div>
-
-      {/* Location */}
-      <div className="flex flex-col gap-1.5">
-        <Label htmlFor="location">{t("jobLocation")}</Label>
-        <Input
-          id="location"
-          list="locations"
-          placeholder={t("jobLocationPlaceholder")}
-          startIcon={<MapPin className="w-4 h-4" />}
-          {...register("location")}
-          error={!!errors.location}
-        />
-        <datalist id="locations">
-          {locations.map((loc) => (
-            <option key={loc} value={loc} />
-          ))}
-        </datalist>
-        {errors.location && <span className="text-xs text-red-500">{errors.location.message}</span>}
       </div>
 
       {serverError && (

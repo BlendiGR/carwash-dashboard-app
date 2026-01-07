@@ -59,7 +59,7 @@ export default async function CustomerDetailPage({ params }: CustomerDetailPageP
       {/* Forms Section */}
       <div className="flex flex-col bg-gray-100 rounded-2xl p-6 shadow-md">
         <h2 className="text-xl font-semibold text-gray-900 mb-4">{t("addToCustomer")}</h2>
-        <CustomerForms customerId={customerId} />
+        <CustomerForms customerId={customerId} customerPhone={customer.phone || ""} />
       </div>
     </main>
   );

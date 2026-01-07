@@ -8,11 +8,12 @@ import AddInvoiceForm from "./addInvoiceForm";
 
 interface CustomerFormsProps {
   customerId: number;
+  customerPhone: string;
 }
 
 type TabType = "job" | "invoice";
 
-export default function CustomerForms({ customerId }: CustomerFormsProps) {
+export default function CustomerForms({ customerId, customerPhone }: CustomerFormsProps) {
   const t = useTranslations("CustomerDetail");
   const [activeTab, setActiveTab] = useState<TabType>("job");
 
@@ -45,7 +46,7 @@ export default function CustomerForms({ customerId }: CustomerFormsProps) {
       </div>
 
       {/* Tab Content */}
-      {activeTab === "job" && <AddJobForm customerId={customerId} />}
+      {activeTab === "job" && <AddJobForm customerId={customerId} customerPhone={customerPhone} />}
       {activeTab === "invoice" && <AddInvoiceForm customerId={customerId} />}
     </div>
   );

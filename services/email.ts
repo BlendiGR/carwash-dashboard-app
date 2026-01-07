@@ -28,7 +28,7 @@ const getTransporter = (): Transporter<SMTPTransport.SentMessageInfo> => {
 
       transporter = nodemailer.createTransport({
         host: process.env.EMAIL_HOST as string,
-        port: parseInt(process.env.EMAIL_PORT as string || "587"),
+        port: parseInt((process.env.EMAIL_PORT as string) || "587"),
         secure: false,
         auth: {
           user: process.env.EMAIL_USER as string,

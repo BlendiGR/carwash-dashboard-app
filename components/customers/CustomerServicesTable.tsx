@@ -97,7 +97,9 @@ export default function CustomerServicesTable({
                 className="border-b border-gray-100 hover:bg-gray-50 transition-colors"
               >
                 <td className="py-3 px-4">
-                  <span className="text-gray-600 text-sm">{row.date.toLocaleDateString()}</span>
+                  <span className="text-gray-600 text-sm">
+                    {row.date.toLocaleDateString("fi-FI")}
+                  </span>
                 </td>
                 <td className="py-3 px-4">
                   <span

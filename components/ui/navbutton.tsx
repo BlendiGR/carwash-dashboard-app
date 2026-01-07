@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 export default function NavButton({ href, label }: { href: string; label: string }) {
   const pathname = usePathname();
-  const isActive = pathname === href;
+  const isActive = pathname.startsWith(href);
 
   const btnColor = isActive
     ? "bg-primary-gradient text-white hover:bg-primaryhover shadow-primary-lg"
