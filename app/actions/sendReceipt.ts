@@ -70,7 +70,7 @@ export async function sendReceipt(data: ReceiptFormData) {
     const pdfComponent = ReceiptPDF({
       customerName: data.customerName,
       plate: data.plate,
-      items: data.items,
+      items: data.items ,
       date,
       logoUrl: `${APP_URL}/logo-opus.png`,
       t,

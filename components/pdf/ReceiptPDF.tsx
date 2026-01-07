@@ -8,7 +8,7 @@ Font.register({
 });
 
 export type ReceiptPDFItem = {
-  id: string;
+  id?: string;
   service: string;
   price: string;
 };
@@ -307,8 +307,8 @@ const ReceiptPDF = ({
           </View>
         </View>
 
-        {validItems.map((item) => (
-          <View key={item.id} style={styles.tableRow}>
+        {validItems.map((item, index) => (
+          <View key={item.id || index} style={styles.tableRow}>
             <View style={styles.serviceColumn}>
               <Text style={styles.tableText}>{item.service}</Text>
             </View>

@@ -4,20 +4,14 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { Bug } from "lucide-react";
-import { z } from "zod";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import SuccessMessage from "@/components/ui/successMessage";
 import { useLoading } from "@/hooks";
-
-const bugReportSchema = z.object({
-  subject: z.string().min(1, "Subject is required").max(100),
-  description: z.string().min(10, "Description must be at least 10 characters").max(1000),
-});
-
-type BugReportFormData = z.infer<typeof bugReportSchema>;
+import { bugReportSchema, BugReportFormData } from "@/lib/schemas/bugReportSchema";
+import { submitBugReport } from "@/app/actions/settings";
 
 export default function BugReportForm() {
   const t = useTranslations("Settings");
@@ -39,20 +33,13 @@ export default function BugReportForm() {
 
   const onSubmit = async (data: BugReportFormData) => {
     await withLoading(async () => {
-      // TODO: Add server action here
-      // const result = await submitBugReport(data);
-      // if (!result.success) {
-      //   setServerError(result.error || t("genericError"));
-      //   return;
-      // }
-
-      // Temporary success simulation - remove when server action is added
-      await new Promise((resolve) => setTimeout(resolve, 500));
+      const result = await submitBugReport(data);
+      if (!result.success) {
+        setServerError(result.error || t("genericError"));
+        return;
+      }
       setSuccess(true);
-      setTimeout(() => {
-        resetState();
-        reset();
-      }, 3000);
+      reset();
     });
   };
 
