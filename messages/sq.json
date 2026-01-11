@@ -193,7 +193,13 @@
     "fetchError": "Dështoi marrja e klientëve",
     "actions": "Veprimet",
     "view": "Shiko",
-    "downloadInvoice": "Shkarko Faturën"
+    "downloadInvoice": "Shkarko Faturën",
+    "unassignedInvoices": "Faturat e Paatribuara",
+    "unassignedInvoicesSubtitle": "Faturat që nuk janë lidhur me asnjë klient",
+    "invoicePlate": "Targa",
+    "invoiceServices": "Shërbimet",
+    "invoiceTotal": "Totali",
+    "invoiceDate": "Data"
   },
   "CustomerDetail": {
     "customerProfile": "Profili i Klientit",
@@ -244,6 +250,7 @@
     "submitBugReport": "Dërgo Raportin",
     "bugReportSuccess": "Raporti u Dërgua!",
     "bugReportSuccessDescription": "Faleminderit për reagimin tuaj. Do ta shqyrtojmë.",
+    "downloadInvoice": "Shkarko Faturën",
     "genericError": "Diçka shkoi keq. Ju lutem provoni përsëri."
   }
 }

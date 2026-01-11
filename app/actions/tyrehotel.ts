@@ -72,8 +72,8 @@ export async function fetchTyres(
         },
       },
     };
-  } catch {
-    return { success: false, error: "Failed to fetch tyres" };
+  } catch (error) {
+    return { success: false, error: error as string };
   }
 }
 
