@@ -5,7 +5,7 @@ import { CustomersTableSkeleton } from "@/components/customers/skeletons/Custome
 import { Suspense } from "react";
 
 interface CustomersPageProps {
-  searchParams: Promise<{ page?: string }>;
+  searchParams: Promise<{ page?: string; invoicePage?: string }>;
 }
 
 export default async function Customers({ searchParams }: CustomersPageProps) {
@@ -16,7 +16,7 @@ export default async function Customers({ searchParams }: CustomersPageProps) {
     <div className="w-full max-w-384 mt-4 mx-auto">
       {/* Unassigned invoices section */}
       <Suspense fallback={null}>
-        <UnassignedInvoices />
+        <UnassignedInvoices searchParams={searchParams} />
       </Suspense>
 
       {/* Search section */}

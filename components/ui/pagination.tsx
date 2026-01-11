@@ -8,16 +8,17 @@ import { useTranslations } from "next-intl";
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
+  queryParam?: string;
 }
 
-export default function Pagination({ currentPage, totalPages }: PaginationProps) {
+export default function Pagination({ currentPage, totalPages, queryParam = "page" }: PaginationProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const t = useTranslations("Dashboard");
 
   const goToPage = (page: number) => {
     const params = new URLSearchParams(searchParams.toString());
-    params.set("page", String(page));
+    params.set(queryParam, String(page));
     router.push(`?${params.toString()}`);
   };
 

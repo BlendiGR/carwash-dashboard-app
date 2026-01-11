@@ -1,16 +1,24 @@
 import { getTranslations } from "next-intl/server";
 import { getUnassignedInvoices } from "@/app/actions/invoices";
 import { FileX, Download } from "lucide-react";
+import Pagination from "../ui/pagination";
 
-export default async function UnassignedInvoices() {
+interface UnassignedInvoicesProps {
+  searchParams: Promise<{ page?: string; invoicePage?: string }>;
+}
+
+export default async function UnassignedInvoices({ searchParams }: UnassignedInvoicesProps) {
   const t = await getTranslations("Customers");
-  const result = await getUnassignedInvoices();
+  const params = await searchParams;
+  const invoicePage = Number(params.invoicePage) || 1;
 
-  if (!result.success || !result.data?.length) {
+  const result = await getUnassignedInvoices(invoicePage);
+
+  if (!result.success || !result.data?.invoices.length) {
     return null;
   }
 
-  const invoices = result.data;
+  const { invoices, page, totalPages } = result.data;
 
   return (
     <div className="bg-gray-100 rounded-2xl p-4 m-4 overflow-hidden shadow-md">
@@ -81,6 +89,7 @@ export default async function UnassignedInvoices() {
             ))}
           </tbody>
         </table>
+        <Pagination currentPage={page} totalPages={totalPages} queryParam="invoicePage" />
       </div>
     </div>
   );
