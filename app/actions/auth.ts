@@ -11,7 +11,6 @@ import { loginSchema } from "@/lib/schemas/loginSchema";
  */
 export async function login(email: string, password: string) {
   try {
-    // Server-side validation
     const validated = loginSchema.safeParse({ email, password });
     if (!validated.success) {
       return { success: false, error: "Invalid credentials format" };

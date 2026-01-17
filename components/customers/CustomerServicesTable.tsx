@@ -5,6 +5,7 @@ import { Trash2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { deleteInvoice, deleteTyre } from "@/app/actions/customers";
 import type { Tyre, Invoices } from "@/app/generated/prisma/client";
+import { Download } from "lucide-react";
 
 type InvoiceItem = {
   id: number;
@@ -129,7 +130,7 @@ export default function CustomerServicesTable({
                     {row.amount !== null ? `€${row.amount.toFixed(2)}` : "—"}
                   </span>
                 </td>
-                <td className="py-3 px-4 text-right">
+                <td className="space-x-2 py-3 px-4 text-right">
                   <button
                     onClick={() => handleDelete(row)}
                     disabled={isPending}
@@ -138,6 +139,17 @@ export default function CustomerServicesTable({
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
+                  {row.type === "job" && (
+                    <a
+                      href={`/api/invoices/${row.id}/download`}
+                      className="p-2 bg-gray-200 hover:bg-gray-300 rounded-lg inline-flex text-gray-700 transition-colors"
+                      title={t("downloadInvoice") || "Download PDF"}
+                      download
+                    >
+                      <Download className="w-4 h-4" />
+                    </a>
+                  )}
+
                 </td>
               </tr>
             ))}

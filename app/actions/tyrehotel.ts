@@ -72,8 +72,8 @@ export async function fetchTyres(
         },
       },
     };
-  } catch (error) {
-    return { success: false, error: error as string };
+  } catch (error: any) {
+    return { success: false, error: error || "Failed to fetch tyres" };
   }
 }
 
@@ -111,8 +111,8 @@ export async function tyreCounts(): Promise<ActionResult<CountsByLocation>> {
       success: true,
       data: { countsByLocation, total },
     };
-  } catch {
-    return { success: false, error: "Failed to fetch tyre counts" };
+  } catch (error: any) {
+    return { success: false, error: error || "Failed to fetch tyre counts" };
   }
 }
 
@@ -143,8 +143,8 @@ export async function fetchCustomers(): Promise<ActionResult<CustomerOption[]>> 
       orderBy: { name: "asc" },
     });
     return { success: true, data: customers };
-  } catch {
-    return { success: false, error: "Failed to fetch customers" };
+  } catch (error: any) {
+    return { success: false, error: error || "Failed to fetch customers" };
   }
 }
 
@@ -166,8 +166,8 @@ export async function fetchLocations(): Promise<ActionResult<string[]>> {
         .map((l: { location: string | null }) => l.location)
         .filter(Boolean) as string[],
     };
-  } catch {
-    return { success: false, error: "Failed to fetch locations" };
+  } catch (error: any) {
+    return { success: false, error: error || "Failed to fetch locations" };
   }
 }
 
@@ -185,7 +185,7 @@ export async function findCustomerByPhone(phone: string): Promise<ActionResult<C
 
     const validated = phoneLookupSchema.safeParse(phone);
     if (!validated.success) {
-      return { success: true, data: null };
+      return { success: false, error: validated.error.message };
     }
 
     const normalizedPhone = normalizeNumber(validated.data);
@@ -196,8 +196,8 @@ export async function findCustomerByPhone(phone: string): Promise<ActionResult<C
     });
 
     return { success: true, data: customer };
-  } catch {
-    return { success: false, error: "Failed to lookup customer" };
+  } catch (error: any) {
+    return { success: false, error: error || "Failed to lookup customer" };
   }
 }
 
@@ -231,11 +231,11 @@ export async function createTyre(data: CreateTyreInput): Promise<ActionResult<Ty
     });
     revalidatePath("/dashboard");
     return { success: true, data: tyre };
-  } catch (error) {
+  } catch (error: any) {
     if (error instanceof Error && error.message.includes("Unique constraint")) {
       return { success: false, error: "A tyre with this plate already exists" };
     }
-    return { success: false, error: "Failed to create tyre" };
+    return { success: false, error: error || "Failed to create tyre" };
   }
 }
 
@@ -274,8 +274,7 @@ export async function toggleTyreStatus(id: number): Promise<ActionResult<TyreWit
 
     revalidatePath("/dashboard");
     return { success: true, data: updatedTyre };
-  } catch (error) {
-    console.error("Failed to toggle tyre status:", error);
-    return { success: false, error: "Failed to toggle tyre status" };
+  } catch (error: any) {
+    return { success: false, error: error || "Failed to toggle tyre status" };
   }
 }

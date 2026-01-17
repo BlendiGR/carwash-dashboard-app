@@ -1,0 +1,739 @@
+[{
+  "id": 15,
+  "number": "0443220248",
+  "plate": "IRU-318",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-15 00:00:00"
+}, {
+  "id": 16,
+  "number": "0504605387",
+  "plate": "OTM-345",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-17 00:00:00"
+}, {
+  "id": 17,
+  "number": "0405203433",
+  "plate": "JMS-355",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-21 00:00:00"
+}, {
+  "id": 18,
+  "number": "045222222",
+  "plate": "MPN-830",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-20 00:00:00"
+}, {
+  "id": 19,
+  "number": "0400414829",
+  "plate": "CSE-846",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-20 00:00:00"
+}, {
+  "id": 20,
+  "number": "0503264793",
+  "plate": "FRZ-369",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-21 00:00:00"
+}, {
+  "id": 21,
+  "number": "0408318930",
+  "plate": "YYF-440",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-21 00:00:00"
+}, {
+  "id": 22,
+  "number": "0400433810",
+  "plate": "ZNN-395",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-23 00:00:00"
+}, {
+  "id": 23,
+  "number": "0405494251",
+  "plate": "NNV-167",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-24 00:00:00"
+}, {
+  "id": 24,
+  "number": "0503737606",
+  "plate": "UUZ-973",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-24 00:00:00"
+}, {
+  "id": 25,
+  "number": "0406739750",
+  "plate": "RVT-525",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-24 00:00:00"
+}, {
+  "id": 26,
+  "number": "0400513738",
+  "plate": "JMX-103",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-22 00:00:00"
+}, {
+  "id": 27,
+  "number": "0505540969",
+  "plate": "NMM-185",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-24 00:00:00"
+}, {
+  "id": 28,
+  "number": "044123321",
+  "plate": "IRS-894",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-24 00:00:00"
+}, {
+  "id": 29,
+  "number": "0505324360",
+  "plate": "CLB-327",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-22 00:00:00"
+}, {
+  "id": 30,
+  "number": "0406749899",
+  "plate": "NNR-610",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-22 00:00:00"
+}, {
+  "id": 31,
+  "number": "0407594277",
+  "plate": "LSA-403",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-22 00:00:00"
+}, {
+  "id": 32,
+  "number": "0407727897",
+  "plate": "CRL-497",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-22 00:00:00"
+}, {
+  "id": 33,
+  "number": "0405441151",
+  "plate": "ERK-714",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-24 00:00:00"
+}, {
+  "id": 34,
+  "number": "0401828087",
+  "plate": "OVK-898",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-23 00:00:00"
+}, {
+  "id": 35,
+  "number": "0415295760",
+  "plate": "ERJ-107",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-23 00:00:00"
+}, {
+  "id": 36,
+  "number": "0452635722",
+  "plate": "NHJ-806",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-23 00:00:00"
+}, {
+  "id": 37,
+  "number": "0451519696",
+  "plate": "BXU-817",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-25 00:00:00"
+}, {
+  "id": 38,
+  "number": "0408511671",
+  "plate": "BRU-635",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-25 00:00:00"
+}, {
+  "id": 39,
+  "number": "0452716969",
+  "plate": "CRI-297",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-25 00:00:00"
+}, {
+  "id": 40,
+  "number": "0505540969",
+  "plate": "SMS-273",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-25 00:00:00"
+}, {
+  "id": 41,
+  "number": "0504000686",
+  "plate": "EUR-742",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-27 00:00:00"
+}, {
+  "id": 42,
+  "number": "0503272207",
+  "plate": "GRF-558",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-27 00:00:00"
+}, {
+  "id": 43,
+  "number": "044444444",
+  "plate": "KVN-158",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-27 00:00:00"
+}, {
+  "id": 44,
+  "number": "0415100505",
+  "plate": "AXC-900",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-28 00:00:00"
+}, {
+  "id": 45,
+  "number": "0417312103",
+  "plate": "KVN-386",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-28 00:00:00"
+}, {
+  "id": 46,
+  "number": "0505027178",
+  "plate": "CRE-592",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-28 00:00:00"
+}, {
+  "id": 47,
+  "number": "0407418018",
+  "plate": "SRH-389",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-28 00:00:00"
+}, {
+  "id": 48,
+  "number": "0405157552",
+  "plate": "RVT-552",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-29 00:00:00"
+}, {
+  "id": 49,
+  "number": "0505884549",
+  "plate": "UXY-161",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-29 00:00:00"
+}, {
+  "id": 50,
+  "number": "0406474637",
+  "plate": "XSO-335",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-29 00:00:00"
+}, {
+  "id": 51,
+  "number": "0405179359",
+  "plate": "MRC-275",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-29 00:00:00"
+}, {
+  "id": 52,
+  "number": "0405557575",
+  "plate": "MRL-939",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-29 00:00:00"
+}, {
+  "id": 53,
+  "number": "0505955305",
+  "plate": "XTE-301",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-29 00:00:00"
+}, {
+  "id": 54,
+  "number": "0505540969",
+  "plate": "FMC-418",
+  "location": "Lokacioni 3",
+  "dateStored": "2025-10-28 00:00:00"
+}, {
+  "id": 57,
+  "number": "0503447372",
+  "plate": "LZK-800",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-30 00:00:00"
+}, {
+  "id": 58,
+  "number": "0505223790",
+  "plate": "CRT-155",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-30 00:00:00"
+}, {
+  "id": 59,
+  "number": "0407682889",
+  "plate": "TBV-287",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-01 00:00:00"
+}, {
+  "id": 60,
+  "number": "04000992228",
+  "plate": "GOL-281",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-03 00:00:00"
+}, {
+  "id": 61,
+  "number": "0503565880",
+  "plate": "VUV-850",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-03 00:00:00"
+}, {
+  "id": 62,
+  "number": "0505667136",
+  "plate": "RXL-526",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-03 00:00:00"
+}, {
+  "id": 63,
+  "number": "0438244907",
+  "plate": "EVK-260",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-04 00:00:00"
+}, {
+  "id": 64,
+  "number": "0405892191",
+  "plate": "ERA-212",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-04 00:00:00"
+}, {
+  "id": 65,
+  "number": "0415018181",
+  "plate": "KPG-752",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-04 00:00:00"
+}, {
+  "id": 66,
+  "number": "0407682889",
+  "plate": "BTV-286",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-01 00:00:00"
+}, {
+  "id": 67,
+  "number": "0449716965",
+  "plate": "SRA-116",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-10-31 00:00:00"
+}, {
+  "id": 68,
+  "number": "0404123785",
+  "plate": "ENZ-874",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-10-06 00:00:00"
+}, {
+  "id": 69,
+  "number": "0404123785",
+  "plate": "NHL-936",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-10-06 00:00:00"
+}, {
+  "id": 70,
+  "number": "0503383146",
+  "plate": "JJV-965",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-10-24 00:00:00"
+}, {
+  "id": 71,
+  "number": "0404858152",
+  "plate": "LRB-251",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-05 00:00:00"
+}, {
+  "id": 72,
+  "number": "0503445647",
+  "plate": "GZU-967",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-05 00:00:00"
+}, {
+  "id": 73,
+  "number": "0406818061",
+  "plate": "MPA-936",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-05 00:00:00"
+}, {
+  "id": 74,
+  "number": "0408416477",
+  "plate": "JNC-311",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-05 00:00:00"
+}, {
+  "id": 75,
+  "number": "0405497415",
+  "plate": "CLK-228",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-05 00:00:00"
+}, {
+  "id": 76,
+  "number": "0407424364",
+  "plate": "OZX-312",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-06 00:00:00"
+}, {
+  "id": 77,
+  "number": "0405392160",
+  "plate": "NNO-996",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-06 00:00:00"
+}, {
+  "id": 78,
+  "number": "0503083363",
+  "plate": "ZPJ-783",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-06 00:00:00"
+}, {
+  "id": 79,
+  "number": "0505307555",
+  "plate": "LRP-719",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-06 00:00:00"
+}, {
+  "id": 80,
+  "number": "0505057707",
+  "plate": "XRE-151",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-06 00:00:00"
+}, {
+  "id": 81,
+  "number": "0402514149",
+  "plate": "KUT-993",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-06 00:00:00"
+}, {
+  "id": 82,
+  "number": "0504356335",
+  "plate": "BXU-810",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-07 00:00:00"
+}, {
+  "id": 83,
+  "number": "0408313451",
+  "plate": "LSL-353",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-07 00:00:00"
+}, {
+  "id": 84,
+  "number": "0405105293",
+  "plate": "CSB-613",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-07 00:00:00"
+}, {
+  "id": 85,
+  "number": "0407012021",
+  "plate": "YXX-529",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-07 00:00:00"
+}, {
+  "id": 86,
+  "number": "0452635722",
+  "plate": "FJZ-576",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-07 00:00:00"
+}, {
+  "id": 87,
+  "number": "0405616099",
+  "plate": "LRV-617",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-07 00:00:00"
+}, {
+  "id": 88,
+  "number": "0505941685",
+  "plate": "HET-111",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-07 00:00:00"
+}, {
+  "id": 89,
+  "number": "04578207625",
+  "plate": "ISX-692",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-10 00:00:00"
+}, {
+  "id": 90,
+  "number": "0505460337",
+  "plate": "HRZ-230",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-10 00:00:00"
+}, {
+  "id": 91,
+  "number": "0504353776",
+  "plate": "OZN-961",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-10 00:00:00"
+}, {
+  "id": 92,
+  "number": "0405604873",
+  "plate": "NOC-644",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-10 00:00:00"
+}, {
+  "id": 93,
+  "number": "0414543329",
+  "plate": "MNT-778",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-10 00:00:00"
+}, {
+  "id": 94,
+  "number": "0445554545",
+  "plate": "FSC-595",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-10 00:00:00"
+}, {
+  "id": 95,
+  "number": "0407194713",
+  "plate": "RVU-460",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-10 00:00:00"
+}, {
+  "id": 96,
+  "number": "041438431",
+  "plate": "CME-905",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-10 00:00:00"
+}, {
+  "id": 97,
+  "number": "0452635722",
+  "plate": "GPK-563",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-11 00:00:00"
+}, {
+  "id": 98,
+  "number": "0503266045",
+  "plate": "GPJ-291",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-11 00:00:00"
+}, {
+  "id": 99,
+  "number": "0503788132",
+  "plate": "NOO-530",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-11 00:00:00"
+}, {
+  "id": 100,
+  "number": "0407248901",
+  "plate": "LOA-974",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-11 00:00:00"
+}, {
+  "id": 101,
+  "number": "0407361821",
+  "plate": "TZV-912",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-11 00:00:00"
+}, {
+  "id": 102,
+  "number": "0503414848",
+  "plate": "SPO-874",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-12 00:00:00"
+}, {
+  "id": 103,
+  "number": "0406822518",
+  "plate": "KUX-666",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-12 00:00:00"
+}, {
+  "id": 104,
+  "number": "0405293133",
+  "plate": "GPS-758",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-12 00:00:00"
+}, {
+  "id": 106,
+  "number": "0407540213",
+  "plate": "ISM-471",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-12 00:00:00"
+}, {
+  "id": 107,
+  "number": "0405896836",
+  "plate": "ZCY-184",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-12 00:00:00"
+}, {
+  "id": 108,
+  "number": "0504633493",
+  "plate": "INN-112",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-12 00:00:00"
+}, {
+  "id": 109,
+  "number": "0407198825",
+  "plate": "SKZ-797",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-13 00:00:00"
+}, {
+  "id": 111,
+  "number": "046328877",
+  "plate": "KTJ-816",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-13 00:00:00"
+}, {
+  "id": 112,
+  "number": "0415446754",
+  "plate": "UZE-580",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-13 00:00:00"
+}, {
+  "id": 113,
+  "number": "0400473133",
+  "plate": "CRX-554",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-13 00:00:00"
+}, {
+  "id": 114,
+  "number": "0404123785",
+  "plate": "NNB-563",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-13 00:00:00"
+}, {
+  "id": 115,
+  "number": "0503589585",
+  "plate": "ERO-728",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-13 00:00:00"
+}, {
+  "id": 116,
+  "number": "0440723361",
+  "plate": "ENZ-643",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-14 00:00:00"
+}, {
+  "id": 118,
+  "number": "0458795707",
+  "plate": "CNE-346",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-14 00:00:00"
+}, {
+  "id": 119,
+  "number": "0443225672",
+  "plate": "FLX-867",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-15 00:00:00"
+}, {
+  "id": 120,
+  "number": "04578380005",
+  "plate": "RRM-586",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-15 00:00:00"
+}, {
+  "id": 121,
+  "number": "0451202357",
+  "plate": "VAL-000",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-15 00:00:00"
+}, {
+  "id": 122,
+  "number": "0406501530",
+  "plate": "GPU-407",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-15 00:00:00"
+}, {
+  "id": 123,
+  "number": "0503383146",
+  "plate": "LLR-626",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-17 00:00:00"
+}, {
+  "id": 124,
+  "number": "0405040005",
+  "plate": "GMC-848",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-17 00:00:00"
+}, {
+  "id": 125,
+  "number": "0505214077",
+  "plate": "NMN-187",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-17 00:00:00"
+}, {
+  "id": 126,
+  "number": "0404139482",
+  "plate": "ZSG-715",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-17 00:00:00"
+}, {
+  "id": 127,
+  "number": "0505513720",
+  "plate": "CSI-837",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-17 00:00:00"
+}, {
+  "id": 128,
+  "number": "0503209170",
+  "plate": "XRY-449",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-17 00:00:00"
+}, {
+  "id": 129,
+  "number": "0442025505",
+  "plate": "CRE-688",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-17 00:00:00"
+}, {
+  "id": 130,
+  "number": "0505637706",
+  "plate": "BKZ-139",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-18 00:00:00"
+}, {
+  "id": 131,
+  "number": "0405165463",
+  "plate": "INM-932",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-19 00:00:00"
+}, {
+  "id": 132,
+  "number": "0449827103",
+  "plate": "CHM-287",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-24 00:00:00"
+}, {
+  "id": 133,
+  "number": "0505540969",
+  "plate": "NLV-333",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-24 00:00:00"
+}, {
+  "id": 134,
+  "number": "050555555",
+  "plate": "ISE-717",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-24 00:00:00"
+}, {
+  "id": 135,
+  "number": "0458590859",
+  "plate": "HCY-737",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-11-25 00:00:00"
+}, {
+  "id": 138,
+  "number": "046215027311",
+  "plate": "JNM-519",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-17 00:00:00"
+}, {
+  "id": 139,
+  "number": "046215027311",
+  "plate": "ACE-123",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-12-02 00:00:00"
+}, {
+  "id": 140,
+  "number": "0449024337",
+  "plate": "GNK-759",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-12-02 00:00:00"
+}, {
+  "id": 142,
+  "number": "0404123785",
+  "plate": "LPC-916",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-11-27 00:00:00"
+}, {
+  "id": 143,
+  "number": "0500315102",
+  "plate": "JOM-369",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-12-04 00:00:00"
+}, {
+  "id": 144,
+  "number": "0409000073",
+  "plate": "NML-688",
+  "location": "Lokacioni 2",
+  "dateStored": "2025-12-05 00:00:00"
+}, {
+  "id": 145,
+  "number": "0400603399",
+  "plate": "JOM-911",
+  "location": "Lokacioni 1",
+  "dateStored": "2025-12-19 00:00:00"
+}]

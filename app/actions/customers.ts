@@ -165,8 +165,6 @@ export async function addInvoiceToCustomer(
       return { success: false, error: "Invalid data" };
     }
 
-    // Calculate totals
-    const services = validatedData.data.items.map((item) => item.service);
     const subtotal = validatedData.data.items.reduce(
       (sum, item) => sum + parseFloat(item.price),
       0
