@@ -26,10 +26,11 @@ const getTransporter = (): Transporter<SMTPTransport.SentMessageInfo> => {
         throw new Error("Missing email configuration environment variables");
       }
 
+      const port = parseInt((process.env.EMAIL_PORT as string) || "587");
       transporter = nodemailer.createTransport({
         host: process.env.EMAIL_HOST as string,
-        port: parseInt((process.env.EMAIL_PORT as string) || "587"),
-        secure: false,
+        port,
+        secure: port === 465,
         auth: {
           user: process.env.EMAIL_USER as string,
           pass: process.env.EMAIL_PASS as string,
