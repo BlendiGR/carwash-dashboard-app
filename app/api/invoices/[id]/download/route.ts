@@ -3,7 +3,7 @@ import { prisma } from "@/prisma/prisma";
 import { requireAuth } from "@/lib/auth-utils";
 import { generatePDF } from "@/services/pdf";
 import ReceiptPDF from "@/components/pdf/ReceiptPDF";
-import { APP_URL } from "@/lib/constants";
+import path from "path";
 
 export async function GET(
   request: NextRequest,
@@ -58,7 +58,7 @@ export async function GET(
       plate: invoice.plate,
       items: items,
       date,
-      logoUrl: `${APP_URL}/logo-opus.png`,
+      logoUrl: path.join(process.cwd(), "public", "logo-opus.png"),
       t,
       businessInfo,
     });

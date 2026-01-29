@@ -5,11 +5,11 @@ import { sendEmail } from "@/services/email";
 import { generatePDF } from "@/services/pdf";
 import Receipt from "@/components/emails/Receipt";
 import ReceiptPDF from "@/components/pdf/ReceiptPDF";
-import { APP_URL } from "@/lib/constants";
 import { requireAuth } from "@/lib/auth-utils";
 import { checkRateLimit } from "@/lib/ratelimit";
 import { prisma } from "@/prisma/prisma";
 import { ActionResult } from "@/lib/action-result";
+import path from "path";
 
 /** Date format locale mapping */
 const DATE_LOCALES: Record<ReceiptLanguage, string> = {
@@ -98,7 +98,7 @@ export async function sendReceipt(data: ReceiptFormData): Promise<ActionResult<n
       plate: data.plate,
       items: data.items,
       date,
-      logoUrl: `${APP_URL}/logo-opus.png`,
+      logoUrl: path.join(process.cwd(), "public", "logo-opus.png"),
       t,
       businessInfo,
     });
