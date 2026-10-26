@@ -30,7 +30,7 @@ This project also served as a good learning experience for me building a full-st
 - **Database:** PostgreSQL with [Prisma ORM](https://www.prisma.io/)
 - **Styling:** [Tailwind CSS 4](https://tailwindcss.com/)
 - **Authentication:** [NextAuth v5](https://authjs.dev/)
-- **Rate Limiting:** [Upstash Redis](https://upstash.com/)
+- **Rate Limiting:** Postgres-backed fixed window (no external service)
 - **Email:** Nodemailer with React Email
 - **PDF Generation:** React PDF Renderer
 - **Testing:** [Vitest](https://vitest.dev/)
@@ -42,7 +42,6 @@ Before you clone the repo, make sure you have the following installed:
 - **Node.js** >= 20.x
 - **npm** >= 10.x (or pnpm/yarn)
 - **PostgreSQL** database (local or hosted)
-- **Upstash Redis** account (for rate limiting)
 - **SMTP server** (for email)
 
 ## Getting Started
@@ -79,8 +78,6 @@ Required environment variables:
 | `EMAIL_USER` | SMTP username |
 | `EMAIL_PASS` | SMTP password |
 | `NEXT_PUBLIC_APP_URL` | Your application URL |
-| `UPSTASH_REDIS_REST_URL` | Upstash Redis REST URL |
-| `UPSTASH_REDIS_REST_TOKEN` | Upstash Redis token |
 | `NEXT_PUBLIC_COMPANY_*` | Business info for invoices/receipts |
 
 ### 4. Set up the database

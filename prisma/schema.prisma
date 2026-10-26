@@ -90,3 +90,12 @@ model PasswordResetToken {
   @@index([token])
   @@index([resetToken])
 }
+
+// Fixed-window rate limit counters, one row per (limiter, identifier)
+model RateLimit {
+  key         String   @id
+  count       Int
+  windowStart DateTime
+
+  @@index([windowStart])
+}
